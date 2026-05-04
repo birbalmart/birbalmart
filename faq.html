@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birbal Mart — FAQs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C9A84C;--gold-dark:#8B6914;--bg:#0A0705;--bg2:#110E08;--bg3:#1A1508;--text:#F5EDD6;--text-muted:#9A8A6A;--white:#FFF8EC;--border:rgba(255,255,255,0.07);--gold-border:rgba(201,168,76,0.2);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(10,7,5,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-emblem{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--bg);}
+    .logo-text span:first-child{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+    .logo-text span:last-child{font-size:9px;color:var(--text-muted);letter-spacing:2.5px;text-transform:uppercase;}
+    .btn-ask{padding:9px 18px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    .page-hero{padding:60px 40px 40px;text-align:center;}
+    .hero-tag{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:600;margin-bottom:12px;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--white);margin-bottom:14px;}
+    .hero-sub{font-size:16px;color:var(--text-muted);max-width:500px;margin:0 auto;}
+
+    .faq-container{max-width:780px;margin:0 auto;padding:40px 40px 80px;}
+    .faq-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;}
+    .faq-cat{padding:8px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;font-size:13px;color:var(--text-muted);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+    .faq-cat.active{background:rgba(201,168,76,0.1);border-color:var(--gold-border);color:var(--gold);}
+
+    .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:10px;overflow:hidden;transition:all 0.3s;}
+    .faq-item.open{border-color:var(--gold-border);}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer;gap:12px;}
+    .faq-q-text{font-size:15px;font-weight:600;color:var(--white);}
+    .faq-arrow{font-size:18px;color:var(--gold);transition:transform 0.3s;flex-shrink:0;}
+    .faq-item.open .faq-arrow{transform:rotate(180deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;}
+    .faq-item.open .faq-a{max-height:300px;}
+    .faq-a-inner{padding:0 20px 18px;font-size:14px;color:var(--text-muted);line-height:1.7;border-top:1px solid var(--border);}
+    .faq-a-inner{padding-top:14px;}
+
+    .still-help{background:var(--bg2);border:1px solid var(--gold-border);border-radius:20px;padding:36px;text-align:center;margin-top:40px;}
+    .still-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);margin-bottom:10px;}
+    .still-sub{font-size:14px;color:var(--text-muted);margin-bottom:24px;}
+    .still-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .btn-whatsapp{padding:12px 24px;background:#25D366;color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:8px;}
+    .btn-contact{padding:12px 24px;background:transparent;border:1px solid var(--gold-border);color:var(--gold);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-muted);}
+    footer span{color:var(--gold);}
+    .ntn{padding:5px 12px;background:rgba(201,168,76,0.08);border:1px solid var(--gold-border);border-radius:6px;font-size:11px;color:var(--gold);}
+    @media(max-width:600px){nav,footer{padding:12px 16px}.page-hero,.faq-container{padding:40px 20px 60px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-emblem">B</div>
+    <div class="logo-text"><span>Birbal Mart</span><span>AI Shopping</span></div>
+  </a>
+  <button class="btn-ask">👑 Ask Birbal</button>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-tag">✦ Help Center</div>
+  <h1 class="hero-title">FAQs</h1>
+  <p class="hero-sub">Aapke common sawaalat ke jawab — yahan sab kuch clear hai!</p>
+</div>
+
+<div class="faq-container">
+  <div class="faq-cats">
+    <button class="faq-cat active">All</button>
+    <button class="faq-cat">📦 Orders</button>
+    <button class="faq-cat">🚚 Delivery</button>
+    <button class="faq-cat">💳 Payments</button>
+    <button class="faq-cat">↩️ Returns</button>
+    <button class="faq-cat">👑 Birbal AI</button>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Birbal Mart pe order kaise karein?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Bohot simple hai! Product dhundein → Cart mein add karein → Checkout pe delivery details bharein → Payment method chunein (COD ya online) → Order place karein! Birbal AI bhi help kar sakta hai — bas apna budget batao!</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Cash on Delivery available hai?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Haan bilkul! Local Pakistan stock ke liye Cash on Delivery (COD) available hai. Delivery wala aapke darwaze pe ayega — tab paisa dena hai. Imported items ke liye online payment zaroori hai quality guarantee ke saath.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Delivery kitne din mein hoti hai?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Local Pakistan stock: Same Day ya 1-3 working days. Imported items (AliExpress/Amazon): 7-30 days depending on source. Har product page pe delivery time clearly likha hota hai.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Order return ya refund kaise milega?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Delivery ke 7 din ke andar return request kar sakte hain. Product original condition mein hona chahiye. Refund 3-5 working days mein process hota hai. Contact us ya WhatsApp pe message karein return process ke liye.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Kya Birbal Mart safe aur genuine hai?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Bilkul! Birbal Mart ek FBR registered business hai with NTN number. Hum Pakistan mein legally operate karte hain. Secure SSL connection, buyer protection, aur verified suppliers se deal karte hain. Aapka paise aur data dono safe hain.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Birbal AI kya hai aur kaise use karein?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Birbal AI aapka personal shopping assistant hai! Bas usse apna budget aur zaroorat batao — woh best products suggest karega. Screen ke neeche 👑 button dabao aur chat shuru karein. 24/7 available hai!</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Payment methods kaunse available hain?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Cash on Delivery (COD), JazzCash, EasyPaisa, Visa/Mastercard Debit/Credit card. Imported items ke liye online payment zaroori hai. COD local items ke liye available hai.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Order track kaise karein?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Order place hone ke baad confirmation email/SMS milta hai jisme tracking number hota hai. Dashboard mein "Track Order" section mein jao ya order-tracking.html pe apna order ID dalkar track karo.</div></div>
+  </div>
+
+  <div class="still-help">
+    <div class="still-title">Still Need Help? 🤔</div>
+    <p class="still-sub">Koi sawaal upar nahi mila? Hum se seedha contact karein!</p>
+    <div class="still-btns">
+      <button class="btn-whatsapp">📱 WhatsApp Us</button>
+      <button class="btn-contact" onclick="window.location.href='contact.html'">📧 Contact Form</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Birbal Mart</span>.</p>
+  <span class="ntn">🏛️ FBR Registered ✅</span>
+  <p>Powered by <span>Birbal AI 👑</span></p>
+</footer>
+
+<script>
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birbal Mart — Order Confirmed!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C9A84C;--gold-dark:#8B6914;--bg:#0A0705;--bg2:#110E08;--bg3:#1A1508;--text:#F5EDD6;--text-muted:#9A8A6A;--green:#27AE60;--white:#FFF8EC;--border:rgba(255,255,255,0.07);--gold-border:rgba(201,168,76,0.2);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;}
+    nav{background:rgba(10,7,5,0.96);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-emblem{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--bg);}
+    .logo-text span:first-child{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+    .logo-text span:last-child{font-size:9px;color:var(--text-muted);letter-spacing:2.5px;text-transform:uppercase;}
+
+    .confirm-page{max-width:700px;margin:0 auto;padding:60px 24px;}
+
+    .success-banner{text-align:center;margin-bottom:40px;animation:popIn 0.6s ease both;}
+    @keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
+    .success-icon{font-size:80px;margin-bottom:20px;display:block;animation:bounce 1s ease 0.6s both;}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    .success-title{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:var(--white);margin-bottom:12px;}
+    .success-title span{color:var(--gold);}
+    .success-sub{font-size:16px;color:var(--text-muted);line-height:1.6;}
+
+    .order-card{background:var(--bg2);border:1px solid var(--gold-border);border-radius:24px;padding:28px;margin-bottom:20px;animation:fadeUp 0.5s 0.3s ease both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .order-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+    .order-id-label{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--text-muted);}
+    .order-id{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);}
+    .order-status{padding:6px 14px;background:rgba(39,174,96,0.12);border:1px solid rgba(39,174,96,0.3);border-radius:100px;font-size:12px;font-weight:700;color:#2ecc71;}
+
+    .order-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+    .detail-item{background:var(--bg3);border-radius:12px;padding:14px;}
+    .detail-label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:5px;}
+    .detail-val{font-size:14px;font-weight:600;color:var(--white);}
+
+    .items-title{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--gold);font-weight:700;margin-bottom:14px;}
+    .order-item-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+    .order-item-row:last-child{border-bottom:none;}
+    .item-emoji{width:44px;height:44px;background:var(--bg3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;}
+    .item-info{flex:1;}
+    .item-n{font-size:13px;font-weight:600;color:var(--white);}
+    .item-d{font-size:11px;color:var(--text-muted);margin-top:2px;}
+    .item-p{color:var(--gold);font-weight:700;font-size:14px;}
+
+    .total-row{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--border);margin-top:4px;}
+    .total-l{font-size:15px;font-weight:700;color:var(--white);}
+    .total-v{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--gold);}
+
+    /* Tracking */
+    .tracking-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:24px;margin-bottom:20px;animation:fadeUp 0.5s 0.5s ease both;}
+    .tracking-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--white);margin-bottom:20px;}
+    .track-steps{display:flex;flex-direction:column;gap:0;}
+    .track-step{display:flex;gap:14px;padding:12px 0;}
+    .track-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:2px;}
+    .track-dot.done{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);}
+    .track-dot.pending{background:var(--bg3);border:2px solid var(--border);color:var(--text-muted);}
+    .track-content{}
+    .track-title{font-size:14px;font-weight:600;color:var(--white);}
+    .track-time{font-size:12px;color:var(--text-muted);margin-top:2px;}
+    .track-line{width:2px;height:20px;background:var(--border);margin:0 13px;}
+    .track-line.done{background:var(--gold-dark);}
+
+    .actions{display:flex;gap:12px;margin-bottom:20px;animation:fadeUp 0.5s 0.6s ease both;}
+    .btn-track{flex:1;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.3s;}
+    .btn-track:hover{transform:translateY(-2px);}
+    .btn-shop{flex:1;padding:14px;background:transparent;border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+    .btn-shop:hover{border-color:var(--gold-border);color:var(--gold);}
+
+    .birbal-msg{background:var(--bg2);border:1px solid var(--gold-border);border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start;animation:fadeUp 0.5s 0.7s ease both;}
+    .birbal-avatar{width:44px;height:44px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+    .birbal-text{font-size:14px;color:var(--text-muted);line-height:1.6;}
+    .birbal-text strong{color:var(--gold);}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-muted);margin-top:40px;}
+    footer span{color:var(--gold);}
+    .ntn{padding:5px 12px;background:rgba(201,168,76,0.08);border:1px solid var(--gold-border);border-radius:6px;font-size:11px;color:var(--gold);}
+
+    @media(max-width:600px){.order-details-grid{grid-template-columns:1fr}.actions{flex-direction:column}nav,footer{padding:12px 16px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-emblem">B</div>
+    <div class="logo-text"><span>Birbal Mart</span><span>AI Shopping</span></div>
+  </a>
+</nav>
+
+<div class="confirm-page">
+  <div class="success-banner">
+    <span class="success-icon">🎉</span>
+    <h1 class="success-title">Order <span>Confirmed!</span></h1>
+    <p class="success-sub">Shukriya! Aapka order receive ho gaya hai.<br/>Hum jald hi aapke paas delivery karein ge!</p>
+  </div>
+
+  <div class="order-card">
+    <div class="order-header">
+      <div>
+        <div class="order-id-label">Order ID</div>
+        <div class="order-id">#BM-2026-08549</div>
+      </div>
+      <div class="order-status">✅ Confirmed</div>
+    </div>
+
+    <div class="order-details-grid">
+      <div class="detail-item">
+        <div class="detail-label">📦 Delivery To</div>
+        <div class="detail-val">Muhammad Ali</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:3px;">Lahore, Punjab</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">💳 Payment</div>
+        <div class="detail-val">Cash on Delivery</div>
+        <div style="font-size:12px;color:#2ecc71;margin-top:3px;">Pay on arrival</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">📅 Order Date</div>
+        <div class="detail-val">May 4, 2026</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">⚡ Est. Delivery</div>
+        <div class="detail-val">Today — Tomorrow</div>
+        <div style="font-size:12px;color:#2ecc71;margin-top:3px;">Local items</div>
+      </div>
+    </div>
+
+    <div class="items-title">✦ Your Items</div>
+    <div class="order-item-row">
+      <div class="item-emoji">🎧</div>
+      <div class="item-info"><div class="item-n">Wireless Earbuds Pro Max</div><div class="item-d">Black | Qty: 1</div></div>
+      <div class="item-p">Rs 2,499</div>
+    </div>
+    <div class="order-item-row">
+      <div class="item-emoji">👟</div>
+      <div class="item-info"><div class="item-n">Sports Running Shoes</div><div class="item-d">White, Size 42 | Qty: 1</div></div>
+      <div class="item-p">Rs 1,850</div>
+    </div>
+    <div class="order-item-row">
+      <div class="item-emoji">⌚</div>
+      <div class="item-info"><div class="item-n">Smart Watch Series X Pro</div><div class="item-d">Gold, 44mm | Qty: 1</div></div>
+      <div class="item-p">Rs 4,200</div>
+    </div>
+    <div class="total-row">
+      <span class="total-l">Total Amount</span>
+      <span class="total-v">Rs 8,549</span>
+    </div>
+  </div>
+
+  <!-- Tracking -->
+  <div class="tracking-card">
+    <div class="tracking-title">📦 Order Tracking</div>
+    <div class="track-steps">
+      <div class="track-step">
+        <div class="track-dot done">✓</div>
+        <div class="track-content"><div class="track-title">Order Placed</div><div class="track-time">May 4, 2026 — 2:30 PM</div></div>
+      </div>
+      <div class="track-line done"></div>
+      <div class="track-step">
+        <div class="track-dot done">✓</div>
+        <div class="track-content"><div class="track-title">Order Confirmed</div><div class="track-time">May 4, 2026 — 2:31 PM</div></div>
+      </div>
+      <div class="track-line"></div>
+      <div class="track-step">
+        <div class="track-dot pending">📦</div>
+        <div class="track-content"><div class="track-title">Being Packed</div><div class="track-time">In progress...</div></div>
+      </div>
+      <div class="track-line"></div>
+      <div class="track-step">
+        <div class="track-dot pending">🚚</div>
+        <div class="track-content"><div class="track-title">Out for Delivery</div><div class="track-time">Estimated: Today</div></div>
+      </div>
+      <div class="track-line"></div>
+      <div class="track-step">
+        <div class="track-dot pending">🏠</div>
+        <div class="track-content"><div class="track-title">Delivered</div><div class="track-time">Awaiting...</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-track" onclick="window.location.href='order-tracking.html'">📦 Track My Order</button>
+    <button class="btn-shop" onclick="window.location.href='index.html'">🛍️ Continue Shopping</button>
+  </div>
+
+  <div class="birbal-msg">
+    <div class="birbal-avatar">👑</div>
+    <div class="birbal-text">
+      <strong>Birbal AI kehta hai:</strong> Shukriya aapka Birbal Mart pe trust karne ka! Aapka order safe haath mein hai. Agar koi sawaal ho toh mujhse poochh sakte hain — main 24/7 available hun! 😊
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Birbal Mart</span>.</p>
+  <span class="ntn">🏛️ FBR Registered ✅</span>
+  <p>Powered by <span>Birbal AI 👑</span></p>
+</footer>
+</body>
+</html>

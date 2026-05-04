@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birbal Mart — My Wishlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C9A84C;--gold-dark:#8B6914;--bg:#0A0705;--bg2:#110E08;--bg3:#1A1508;--text:#F5EDD6;--text-muted:#9A8A6A;--red:#C0392B;--white:#FFF8EC;--border:rgba(255,255,255,0.07);--gold-border:rgba(201,168,76,0.2);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(10,7,5,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-emblem{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--bg);}
+    .logo-text span:first-child{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+    .logo-text span:last-child{font-size:9px;color:var(--text-muted);letter-spacing:2.5px;text-transform:uppercase;}
+    .nav-right{display:flex;align-items:center;gap:10px;}
+    .nav-icon-btn{width:38px;height:38px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;text-decoration:none;position:relative;}
+    .nav-badge{position:absolute;top:-5px;right:-5px;width:17px;height:17px;background:var(--red);border-radius:50%;font-size:9px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;}
+    .btn-ask{padding:9px 18px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    .page-header{padding:32px 40px 0;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+    .page-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--white);}
+    .page-count{font-size:14px;color:var(--text-muted);margin-top:5px;}
+    .btn-cart-all{padding:12px 24px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:11px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    .wishlist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 40px 80px;max-width:1200px;margin:0 auto;}
+    .wish-card{background:var(--bg2);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all 0.3s;animation:fadeUp 0.4s ease both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .wish-card:hover{border-color:var(--gold-border);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4);}
+    .wish-img{height:160px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;}
+    .wish-remove{position:absolute;top:10px;right:10px;width:30px;height:30px;background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:13px;transition:all 0.2s;}
+    .wish-remove:hover{background:rgba(192,57,43,0.35);}
+    .source-tag{position:absolute;bottom:10px;left:10px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;}
+    .src-local{background:rgba(39,174,96,0.9);color:white;}
+    .src-imported{background:rgba(201,168,76,0.9);color:var(--bg);}
+    .wish-info{padding:14px;}
+    .wish-name{font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;}
+    .wish-prices{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+    .wish-price{color:var(--gold);font-size:17px;font-weight:700;}
+    .wish-old{color:var(--text-muted);font-size:12px;text-decoration:line-through;}
+    .wish-delivery{font-size:11px;font-weight:600;color:#2ecc71;margin-bottom:12px;}
+    .wish-btns{display:flex;gap:8px;}
+    .btn-wish-cart{flex:1;padding:9px;background:rgba(201,168,76,0.1);border:1px solid var(--gold-border);border-radius:9px;color:var(--gold);font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
+    .btn-wish-buy{flex:1;padding:9px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:9px;color:var(--bg);font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-muted);}
+    footer span{color:var(--gold);}
+    .ntn{padding:5px 12px;background:rgba(201,168,76,0.08);border:1px solid var(--gold-border);border-radius:6px;font-size:11px;color:var(--gold);}
+    @media(max-width:900px){.wishlist-grid{grid-template-columns:repeat(2,1fr)}nav,footer{padding:12px 16px}.page-header,.wishlist-grid{padding:24px 16px 60px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-emblem">B</div>
+    <div class="logo-text"><span>Birbal Mart</span><span>AI Shopping</span></div>
+  </a>
+  <div class="nav-right">
+    <a href="cart.html" class="nav-icon-btn">🛒<span class="nav-badge">3</span></a>
+    <a href="login.html" class="nav-icon-btn">👤</a>
+    <button class="btn-ask">👑 Ask Birbal</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">❤️ My Wishlist</h1>
+    <p class="page-count">6 saved items — Prices may change</p>
+  </div>
+  <button class="btn-cart-all">🛒 Add All to Cart</button>
+</div>
+
+<div class="wishlist-grid">
+  <div class="wish-card">
+    <div class="wish-img">🎮<div class="wish-remove">✕</div><span class="source-tag src-local">🇵🇰 Local</span></div>
+    <div class="wish-info">
+      <div class="wish-name">Gaming Controller Wireless</div>
+      <div class="wish-prices"><span class="wish-price">Rs 3,100</span><span class="wish-old">Rs 3,650</span></div>
+      <div class="wish-delivery">⚡ Same Day Delivery</div>
+      <div class="wish-btns"><button class="btn-wish-cart">🛒 Cart</button><button class="btn-wish-buy">Buy Now</button></div>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-img">💄<div class="wish-remove">✕</div><span class="source-tag src-local">🇵🇰 Local</span></div>
+    <div class="wish-info">
+      <div class="wish-name">Luxury Makeup Kit 12pcs</div>
+      <div class="wish-prices"><span class="wish-price">Rs 1,600</span><span class="wish-old">Rs 2,000</span></div>
+      <div class="wish-delivery">⚡ Same Day Delivery</div>
+      <div class="wish-btns"><button class="btn-wish-cart">🛒 Cart</button><button class="btn-wish-buy">Buy Now</button></div>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-img">🎒<div class="wish-remove">✕</div><span class="source-tag src-imported">🌍 Imported</span></div>
+    <div class="wish-info">
+      <div class="wish-name">Travel Backpack 40L Waterproof</div>
+      <div class="wish-prices"><span class="wish-price">Rs 2,100</span><span class="wish-old">Rs 2,560</span></div>
+      <div class="wish-delivery" style="color:var(--gold)">📦 7-14 Days</div>
+      <div class="wish-btns"><button class="btn-wish-cart">🛒 Cart</button><button class="btn-wish-buy">Buy Now</button></div>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-img">💡<div class="wish-remove">✕</div><span class="source-tag src-local">🇵🇰 Local</span></div>
+    <div class="wish-info">
+      <div class="wish-name">Smart LED Bulb RGB Set 4pcs</div>
+      <div class="wish-prices"><span class="wish-price">Rs 890</span><span class="wish-old">Rs 1,140</span></div>
+      <div class="wish-delivery">⚡ 1-2 Days</div>
+      <div class="wish-btns"><button class="btn-wish-cart">🛒 Cart</button><button class="btn-wish-buy">Buy Now</button></div>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-img">🏋️<div class="wish-remove">✕</div><span class="source-tag src-imported">🌍 Imported</span></div>
+    <div class="wish-info">
+      <div class="wish-name">Resistance Bands Set 5 Levels</div>
+      <div class="wish-prices"><span class="wish-price">Rs 1,200</span><span class="wish-old">Rs 1,500</span></div>
+      <div class="wish-delivery" style="color:var(--gold)">📦 15-20 Days</div>
+      <div class="wish-btns"><button class="btn-wish-cart">🛒 Cart</button><button class="btn-wish-buy">Buy Now</button></div>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-img">🔋<div class="wish-remove">✕</div><span class="source-tag src-local">🇵🇰 Local</span></div>
+    <div class="wish-info">
+      <div class="wish-name">Power Bank 20000mAh Fast</div>
+      <div class="wish-prices"><span class="wish-price">Rs 1,800</span><span class="wish-old">Rs 2,200</span></div>
+      <div class="wish-delivery">⚡ Same Day Delivery</div>
+      <div class="wish-btns"><button class="btn-wish-cart">🛒 Cart</button><button class="btn-wish-buy">Buy Now</button></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Birbal Mart</span>.</p>
+  <span class="ntn">🏛️ FBR Registered ✅</span>
+  <p>Powered by <span>Birbal AI 👑</span></p>
+</footer>
+</body>
+</html>
