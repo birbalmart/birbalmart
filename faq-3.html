@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="favicon.png"/>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Frequently asked questions about Birbal Mart — orders, delivery, payments, returns."/>
+  <meta name="keywords" content="birbal mart, online shopping pakistan, AI shopping, cash on delivery, ecommerce pakistan"/>
+  <meta name="author" content="Birbal Mart"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="FAQs — Birbal Mart | Help Center"/>
+  <meta property="og:description" content="Frequently asked questions about Birbal Mart — orders, delivery, payments, returns."/>
+  <meta property="og:url" content="https://birbalmart.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://birbalmart.com/favicon.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="FAQs — Birbal Mart | Help Center"/>
+  <meta name="twitter:description" content="Frequently asked questions about Birbal Mart — orders, delivery, payments, returns."/>
+  <link rel="canonical" href="https://birbalmart.com/faq.html"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs — Birbal Mart | Help Center</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C9A84C;--gold-dark:#8B6914;--bg:#0A0705;--bg2:#110E08;--bg3:#1A1508;--text:#F5EDD6;--text-muted:#9A8A6A;--white:#FFF8EC;--border:rgba(255,255,255,0.07);--gold-border:rgba(201,168,76,0.2);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(10,7,5,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-emblem{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--bg);}
+    .logo-text span:first-child{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+    .logo-text span:last-child{font-size:9px;color:var(--text-muted);letter-spacing:2.5px;text-transform:uppercase;}
+    .btn-ask{padding:9px 18px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    .page-hero{padding:60px 40px 40px;text-align:center;}
+    .hero-tag{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--gold);font-weight:600;margin-bottom:12px;}
+    .hero-title{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--white);margin-bottom:14px;}
+    .hero-sub{font-size:16px;color:var(--text-muted);max-width:500px;margin:0 auto;}
+
+    .faq-container{max-width:780px;margin:0 auto;padding:40px 40px 80px;}
+    .faq-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;}
+    .faq-cat{padding:8px 18px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;font-size:13px;color:var(--text-muted);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+    .faq-cat.active{background:rgba(201,168,76,0.1);border-color:var(--gold-border);color:var(--gold);}
+
+    .faq-item{background:var(--bg2);border:1px solid var(--border);border-radius:16px;margin-bottom:10px;overflow:hidden;transition:all 0.3s;}
+    .faq-item.open{border-color:var(--gold-border);}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;cursor:pointer;gap:12px;}
+    .faq-q-text{font-size:15px;font-weight:600;color:var(--white);}
+    .faq-arrow{font-size:18px;color:var(--gold);transition:transform 0.3s;flex-shrink:0;}
+    .faq-item.open .faq-arrow{transform:rotate(180deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;}
+    .faq-item.open .faq-a{max-height:300px;}
+    .faq-a-inner{padding:0 20px 18px;font-size:14px;color:var(--text-muted);line-height:1.7;border-top:1px solid var(--border);}
+    .faq-a-inner{padding-top:14px;}
+
+    .still-help{background:var(--bg2);border:1px solid var(--gold-border);border-radius:20px;padding:36px;text-align:center;margin-top:40px;}
+    .still-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--white);margin-bottom:10px;}
+    .still-sub{font-size:14px;color:var(--text-muted);margin-bottom:24px;}
+    .still-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .btn-whatsapp{padding:12px 24px;background:#25D366;color:white;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:8px;}
+    .btn-contact{padding:12px 24px;background:transparent;border:1px solid var(--gold-border);color:var(--gold);border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-muted);}
+    footer span{color:var(--gold);}
+    .ntn{padding:5px 12px;background:rgba(201,168,76,0.08);border:1px solid var(--gold-border);border-radius:6px;font-size:11px;color:var(--gold);}
+    @media(max-width:600px){nav,footer{padding:12px 16px}.page-hero,.faq-container{padding:40px 20px 60px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-emblem">B</div>
+    <div class="logo-text"><span>Birbal Mart</span><span>AI Shopping</span></div>
+  </a>
+  <button class="btn-ask">👑 Ask Birbal</button>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-tag">✦ Help Center</div>
+  <h1 class="hero-title">FAQs</h1>
+  <p class="hero-sub">Aapke common sawaalat ke jawab — yahan sab kuch clear hai!</p>
+</div>
+
+<div class="faq-container">
+  <div class="faq-cats">
+    <button class="faq-cat active">All</button>
+    <button class="faq-cat">📦 Orders</button>
+    <button class="faq-cat">🚚 Delivery</button>
+    <button class="faq-cat">💳 Payments</button>
+    <button class="faq-cat">↩️ Returns</button>
+    <button class="faq-cat">👑 Birbal AI</button>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Birbal Mart pe order kaise karein?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Bohot simple hai! Product dhundein → Cart mein add karein → Checkout pe delivery details bharein → Payment method chunein (COD ya online) → Order place karein! Birbal AI bhi help kar sakta hai — bas apna budget batao!</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Cash on Delivery available hai?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Haan bilkul! Local Pakistan stock ke liye Cash on Delivery (COD) available hai. Delivery wala aapke darwaze pe ayega — tab paisa dena hai. Imported items ke liye online payment zaroori hai quality guarantee ke saath.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Delivery kitne din mein hoti hai?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Local Pakistan stock: Same Day ya 1-3 working days. Imported items (AliExpress/Amazon): 7-30 days depending on source. Har product page pe delivery time clearly likha hota hai.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Order return ya refund kaise milega?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Delivery ke 7 din ke andar return request kar sakte hain. Product original condition mein hona chahiye. Refund 3-5 working days mein process hota hai. Contact us ya WhatsApp pe message karein return process ke liye.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Kya Birbal Mart safe aur genuine hai?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Bilkul! Birbal Mart ek FBR registered business hai with NTN number. Hum Pakistan mein legally operate karte hain. Secure SSL connection, buyer protection, aur verified suppliers se deal karte hain. Aapka paise aur data dono safe hain.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Birbal AI kya hai aur kaise use karein?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Birbal AI aapka personal shopping assistant hai! Bas usse apna budget aur zaroorat batao — woh best products suggest karega. Screen ke neeche 👑 button dabao aur chat shuru karein. 24/7 available hai!</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Payment methods kaunse available hain?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Cash on Delivery (COD), JazzCash, EasyPaisa, Visa/Mastercard Debit/Credit card. Imported items ke liye online payment zaroori hai. COD local items ke liye available hai.</div></div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q"><span class="faq-q-text">Order track kaise karein?</span><span class="faq-arrow">▾</span></div>
+    <div class="faq-a"><div class="faq-a-inner">Order place hone ke baad confirmation email/SMS milta hai jisme tracking number hota hai. Dashboard mein "Track Order" section mein jao ya order-tracking.html pe apna order ID dalkar track karo.</div></div>
+  </div>
+
+  <div class="still-help">
+    <div class="still-title">Still Need Help? 🤔</div>
+    <p class="still-sub">Koi sawaal upar nahi mila? Hum se seedha contact karein!</p>
+    <div class="still-btns">
+      <button class="btn-whatsapp">📱 WhatsApp Us</button>
+      <button class="btn-contact" onclick="window.location.href='contact.html'">📧 Contact Form</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Birbal Mart</span>.</p>
+  <span class="ntn">🏛️ FBR Registered ✅</span>
+  <p>Powered by <span>Birbal AI 👑</span></p>
+</footer>
+
+<script>
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+  <!-- WhatsApp Floating Button -->
+  <style>
+    .wa-float{position:fixed;bottom:90px;right:28px;z-index:9998;}
+    .wa-btn{width:56px;height:56px;background:#25D366;border-radius:18px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.4);transition:all 0.3s;animation:waPulse 2s ease-in-out infinite;}
+    .wa-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,0.6);animation:none;}
+    @keyframes waPulse{0%,100%{transform:translateY(0);box-shadow:0 8px 24px rgba(37,211,102,0.4);}50%{transform:translateY(-4px);box-shadow:0 16px 36px rgba(37,211,102,0.6);}}
+    .wa-btn svg{width:28px;height:28px;fill:white;}
+    .wa-tooltip{position:absolute;right:68px;top:50%;transform:translateY(-50%);background:#25D366;color:white;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity 0.3s;font-family:"DM Sans",sans-serif;}
+    .wa-float:hover .wa-tooltip{opacity:1;}
+  </style>
+  <div class="wa-float">
+    <div class="wa-tooltip">Chat on WhatsApp 💬</div>
+    <a href="https://wa.me/923059192790?text=Hi%20Birbal%20Mart!%20I%20need%20help%20with%20shopping" target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

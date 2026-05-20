@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <meta name="description" content="Shop millions of products on Birbal Mart — Electronics, Fashion, Shoes, Home, Beauty. Cash on Delivery available."/>
+  <title>All Products — Birbal Mart | Pakistan ka #1 AI Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--gold:#C9A84C;--gold-dark:#8B6914;--gold-glow:rgba(201,168,76,0.2);--bg:#080604;--bg2:#0F0C07;--bg3:#181208;--bg4:#201808;--text:#F5EDD6;--text-muted:#8A7A5A;--green:#38A169;--red:#E53E3E;--blue:#3182CE;--white:#FFF8EC;--border:rgba(255,255,255,0.06);--gold-border:rgba(201,168,76,0.18);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px;}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;background:rgba(8,6,4,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 40px;display:flex;align-items:center;gap:14px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+    .logo-mark{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--bg);}
+    .logo-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);}
+    .nav-search{flex:1;max-width:560px;display:flex;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.2s;}
+    .nav-search:focus-within{border-color:var(--gold-border);}
+    .sinp{flex:1;background:transparent;border:none;padding:11px 16px;color:var(--text);font-size:14px;font-family:'DM Sans',sans-serif;outline:none;}
+    .sinp::placeholder{color:var(--text-muted);}
+    .sbtn2{padding:0 20px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;cursor:pointer;font-size:13px;font-weight:700;color:var(--bg);font-family:'DM Sans',sans-serif;}
+    .nav-r{display:flex;align-items:center;gap:8px;margin-left:auto;}
+    .nb{width:40px;height:40px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;text-decoration:none;position:relative;}
+    .nbd{position:absolute;top:-4px;right:-4px;width:16px;height:16px;background:var(--red);border-radius:50%;font-size:9px;font-weight:700;color:white;display:flex;align-items:center;justify-content:center;}
+    .btn-birbal{display:flex;align-items:center;gap:7px;padding:9px 18px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    /* BREADCRUMB */
+    .breadcrumb{padding:14px 40px;font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
+    .breadcrumb a{color:var(--text-muted);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--gold);}
+    .breadcrumb span{color:var(--gold);}
+
+    /* LAYOUT */
+    .layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 120px);}
+
+    /* SIDEBAR */
+    .sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:24px 0;position:sticky;top:65px;height:calc(100vh - 65px);overflow-y:auto;}
+    .filter-section{padding:0 20px 20px;border-bottom:1px solid var(--border);margin-bottom:16px;}
+    .filter-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:14px;}
+    .filter-opt{display:flex;align-items:center;gap:10px;padding:7px 0;cursor:pointer;}
+    .fchk{width:17px;height:17px;accent-color:var(--gold);cursor:pointer;}
+    .flbl{font-size:13.5px;color:var(--text-muted);cursor:pointer;transition:color 0.2s;}
+    .filter-opt:hover .flbl{color:var(--text);}
+    .fcount{margin-left:auto;font-size:11px;color:var(--text-dim);}
+
+    /* PRICE RANGE */
+    .price-inputs{display:flex;gap:8px;align-items:center;margin-bottom:10px;}
+    .pinp{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:8px 10px;color:var(--text);font-size:12px;font-family:'DM Sans',sans-serif;outline:none;}
+    .pinp:focus{border-color:var(--gold-border);}
+    .range-sl{width:100%;accent-color:var(--gold);}
+    .btn-apply{width:100%;margin-top:10px;padding:9px;background:rgba(201,168,76,0.1);border:1px solid var(--gold-border);border-radius:8px;color:var(--gold);font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+    .btn-apply:hover{background:rgba(201,168,76,0.2);}
+
+    /* SOURCE FILTER */
+    .source-btns{display:flex;flex-direction:column;gap:8px;}
+    .src-btn{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;cursor:pointer;transition:all 0.2s;}
+    .src-btn.active{border-color:var(--gold-border);background:rgba(201,168,76,0.06);}
+    .src-btn:hover{border-color:var(--gold-border);}
+    .src-icon{font-size:18px;}
+    .src-name{font-size:13px;font-weight:600;color:var(--white);}
+    .src-sub{font-size:11px;color:var(--text-muted);}
+
+    /* RATING */
+    .rating-opts{display:flex;flex-direction:column;gap:6px;}
+    .ropt{display:flex;align-items:center;gap:8px;cursor:pointer;padding:4px 0;}
+    .rstars{color:var(--gold);font-size:14px;}
+    .rlbl{font-size:13px;color:var(--text-muted);}
+
+    /* MAIN */
+    .products-main{padding:24px 28px;}
+
+    /* TOP BAR */
+    .top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;}
+    .results-info{font-size:14px;color:var(--text-muted);}
+    .results-info strong{color:var(--text);}
+    .top-right{display:flex;align-items:center;gap:10px;}
+    .sort-sel{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:9px 14px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;cursor:pointer;}
+    .view-toggle{display:flex;gap:4px;}
+    .vtbtn{width:36px;height:36px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--text-muted);transition:all 0.2s;}
+    .vtbtn.active{background:rgba(201,168,76,0.1);border-color:var(--gold-border);color:var(--gold);}
+
+    /* CATEGORY PILLS */
+    .cat-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+    .cpill{padding:7px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:100px;font-size:12px;color:var(--text-muted);cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+    .cpill:hover{border-color:var(--gold-border);color:var(--gold);}
+    .cpill.active{background:rgba(201,168,76,0.1);border-color:var(--gold-border);color:var(--gold);font-weight:600;}
+
+    /* PRODUCTS GRID */
+    .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    .pcard{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.35s;cursor:pointer;position:relative;}
+    .pcard:hover{border-color:var(--gold-border);transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+    .pimg{position:relative;height:190px;background:linear-gradient(135deg,var(--bg3),var(--bg4));display:flex;align-items:center;justify-content:center;font-size:60px;overflow:hidden;}
+    .pimg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40px;background:linear-gradient(to top,var(--bg2),transparent);}
+    .pbadges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px;z-index:2;}
+    .pb{font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;}
+    .pb-sale{background:var(--red);color:white;}
+    .pb-local{background:rgba(56,161,105,0.9);color:white;}
+    .pb-imp{background:rgba(201,168,76,0.9);color:var(--bg);}
+    .pb-new{background:var(--blue);color:white;}
+    .pb-hot{background:linear-gradient(135deg,#FF6B35,#F7931E);color:white;}
+    .wbtn{position:absolute;top:10px;right:10px;width:32px;height:32px;background:rgba(8,6,4,0.6);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;backdrop-filter:blur(4px);transition:all 0.2s;z-index:2;}
+    .wbtn:hover{background:rgba(229,62,62,0.2);}
+    .pinfo{padding:12px 14px 14px;}
+    .psrc{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;display:flex;justify-content:space-between;}
+    .dfast{color:var(--green);font-weight:700;}
+    .dslow{color:var(--gold);font-weight:600;}
+    .pname{font-size:13.5px;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+    .prating{display:flex;align-items:center;gap:5px;margin-bottom:8px;}
+    .stars{color:var(--gold);font-size:11px;}
+    .rcnt{font-size:11px;color:var(--text-muted);}
+    .pprices{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+    .pnew{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);}
+    .pold{font-size:12px;color:var(--text-muted);text-decoration:line-through;}
+    .psave{font-size:10px;background:rgba(56,161,105,0.12);border:1px solid rgba(56,161,105,0.2);color:var(--green);padding:2px 6px;border-radius:4px;font-weight:700;}
+    .pbtns{display:flex;gap:8px;}
+    .bcart{flex:1;padding:9px;background:rgba(201,168,76,0.1);border:1px solid var(--gold-border);border-radius:9px;color:var(--gold);font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+    .bcart:hover{background:rgba(201,168,76,0.2);}
+    .bbuy{flex:1;padding:9px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:9px;color:var(--bg);font-size:12px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+    .bbuy:hover{filter:brightness(1.1);}
+
+    /* LIST VIEW */
+    .pcard.list-view{display:flex;flex-direction:row;}
+    .pcard.list-view .pimg{width:180px;height:140px;flex-shrink:0;}
+    .pcard.list-view .pinfo{flex:1;padding:16px;}
+
+    /* LOAD MORE */
+    .load-more{text-align:center;padding:40px 0;}
+    .btn-lm{padding:14px 44px;background:transparent;border:1px solid var(--gold-border);border-radius:12px;color:var(--gold);font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.3s;}
+    .btn-lm:hover{background:rgba(201,168,76,0.08);transform:translateY(-2px);}
+
+    /* BIRBAL POPUP */
+    .birbal-pop{position:fixed;bottom:100px;right:28px;width:360px;background:var(--bg2);border:1px solid var(--gold-border);border-radius:24px;box-shadow:0 40px 80px rgba(0,0,0,0.6);z-index:400;display:none;flex-direction:column;overflow:hidden;}
+    .birbal-pop.open{display:flex;animation:popIn 0.35s ease;}
+    @keyframes popIn{from{opacity:0;transform:scale(0.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .pop-hdr{background:var(--bg3);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+    .pop-close{width:26px;height:26px;background:var(--bg2);border:1px solid var(--border);border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px;}
+    .pop-msgs{padding:14px;height:260px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+    .bub{max-width:88%;padding:10px 13px;border-radius:13px;font-size:13px;line-height:1.5;}
+    .bub-u{background:rgba(201,168,76,0.12);border:1px solid var(--gold-border);align-self:flex-end;border-bottom-right-radius:4px;}
+    .bub-a{background:var(--bg3);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:4px;}
+    .bub-a strong{color:var(--gold);}
+    .pop-quick{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px;}
+    .qchip{padding:4px 11px;background:var(--bg3);border:1px solid var(--border);border-radius:100px;font-size:11px;color:var(--text-muted);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif;}
+    .qchip:hover{border-color:var(--gold-border);color:var(--gold);}
+    .pop-inp-row{display:flex;gap:8px;padding:10px 14px;border-top:1px solid var(--border);}
+    .cinp{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:9px 13px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;}
+    .cinp:focus{border-color:var(--gold-border);}
+    .cinp::placeholder{color:var(--text-muted);}
+    .sbtn{width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;border-radius:10px;cursor:pointer;font-size:15px;flex-shrink:0;}
+
+    /* FLOAT */
+    .float-stack{position:fixed;bottom:28px;right:28px;z-index:300;display:flex;flex-direction:column;gap:10px;align-items:flex-end;}
+    .fbtn{width:56px;height:56px;border-radius:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:23px;border:none;transition:all 0.3s;box-shadow:0 8px 28px rgba(0,0,0,0.3);}
+    .fb-birbal{background:linear-gradient(135deg,var(--gold),var(--gold-dark));animation:bob 3s ease-in-out infinite;}
+    .fb-wa{background:#25D366;}
+    @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);}
+    footer span{color:var(--gold);}
+    .ntn-badge{display:flex;align-items:center;gap:6px;background:rgba(201,168,76,0.08);border:1px solid var(--gold-border);border-radius:8px;padding:5px 12px;font-size:11px;color:var(--gold);}
+
+    @media(max-width:1100px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{display:none}.pgrid{grid-template-columns:repeat(2,1fr)}nav{padding:10px 20px}.products-main{padding:16px}.breadcrumb{padding:10px 20px}}
+    @media(max-width:500px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-mark">B</div>
+    <span class="logo-name">Birbal Mart</span>
+  </a>
+  <div class="nav-search">
+    <input class="sinp" type="text" placeholder="Search products..." id="sInp" onkeypress="if(event.key==='Enter')doSearch()"/>
+    <button class="sbtn2" onclick="doSearch()">Search</button>
+  </div>
+  <div class="nav-r">
+    <a href="wishlist.html" class="nb">❤️</a>
+    <a href="cart.html" class="nb">🛒<span class="nbd">2</span></a>
+    <a href="dashboard.html" class="nb">👤</a>
+    <button class="btn-birbal" onclick="toggleBirbal()">👑 Ask Birbal</button>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> ›
+  <span>All Products</span>
+</div>
+
+<div class="layout">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <div class="filter-section">
+      <div class="filter-title">📍 Source</div>
+      <div class="source-btns">
+        <div class="src-btn active" onclick="filterSource(this,'all')">
+          <span class="src-icon">🌐</span>
+          <div><div class="src-name">All Products</div><div class="src-sub">Local + Imported</div></div>
+        </div>
+        <div class="src-btn" onclick="filterSource(this,'local')">
+          <span class="src-icon">🇵🇰</span>
+          <div><div class="src-name">Local Pakistan</div><div class="src-sub">Fast delivery • COD</div></div>
+        </div>
+        <div class="src-btn" onclick="filterSource(this,'imported')">
+          <span class="src-icon">🌍</span>
+          <div><div class="src-name">Imported</div><div class="src-sub">Best quality • Online pay</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">💰 Price Range (PKR)</div>
+      <div class="price-inputs">
+        <input class="pinp" type="number" placeholder="Min" id="pmin"/>
+        <span style="color:var(--text-muted)">—</span>
+        <input class="pinp" type="number" placeholder="Max" id="pmax"/>
+      </div>
+      <input type="range" class="range-sl" min="0" max="100000" value="50000"/>
+      <button class="btn-apply" onclick="applyPrice()">Apply Filter</button>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">⚡ Delivery</div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">Same Day</label><span class="fcount">234</span></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">1-3 Days</label><span class="fcount">1.2K</span></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk"/><label class="flbl">7-14 Days (Imported)</label><span class="fcount">4.8K</span></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk"/><label class="flbl">15-30 Days (International)</label><span class="fcount">2.1K</span></div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">💳 Payment</div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">Cash on Delivery</label></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">JazzCash</label></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">EasyPaisa</label></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk"/><label class="flbl">Card / Online</label></div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">⭐ Rating</div>
+      <div class="rating-opts">
+        <div class="ropt"><input type="checkbox" class="fchk"/><span class="rstars">★★★★★</span><span class="rlbl">5 Star</span></div>
+        <div class="ropt"><input type="checkbox" class="fchk" checked/><span class="rstars">★★★★☆</span><span class="rlbl">4+ Star</span></div>
+        <div class="ropt"><input type="checkbox" class="fchk"/><span class="rstars">★★★☆☆</span><span class="rlbl">3+ Star</span></div>
+      </div>
+    </div>
+
+    <div class="filter-section" style="border-bottom:none">
+      <div class="filter-title">🏪 Verified Sellers</div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">Gold Verified ✅</label></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk" checked/><label class="flbl">Verified ✅</label></div>
+      <div class="filter-opt"><input type="checkbox" class="fchk"/><label class="flbl">New Sellers</label></div>
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+  <div class="products-main">
+
+    <!-- CATEGORY PILLS -->
+    <div class="cat-pills">
+      <span class="cpill active" onclick="setCat(this,'all')">🏠 All</span>
+      <span class="cpill" onclick="setCat(this,'electronics')">📱 Electronics</span>
+      <span class="cpill" onclick="setCat(this,'shoes')">👟 Shoes</span>
+      <span class="cpill" onclick="setCat(this,'fashion')">👕 Fashion</span>
+      <span class="cpill" onclick="setCat(this,'home')">🏠 Home</span>
+      <span class="cpill" onclick="setCat(this,'beauty')">💄 Beauty</span>
+      <span class="cpill" onclick="setCat(this,'sports')">🏋️ Sports</span>
+      <span class="cpill" onclick="setCat(this,'grocery')">🛒 Grocery</span>
+      <span class="cpill" onclick="setCat(this,'kids')">🧸 Kids</span>
+      <span class="cpill" onclick="setCat(this,'automotive')">🚗 Auto</span>
+      <span class="cpill" onclick="setCat(this,'health')">💊 Health</span>
+    </div>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="results-info">Showing <strong>240 products</strong> — Sorted by Birbal's Pick 👑</div>
+      <div class="top-right">
+        <select class="sort-sel">
+          <option>👑 Birbal's Pick</option>
+          <option>💰 Price: Low to High</option>
+          <option>💰 Price: High to Low</option>
+          <option>⭐ Top Rated</option>
+          <option>🔥 Best Selling</option>
+          <option>🆕 Newest First</option>
+        </select>
+        <div class="view-toggle">
+          <div class="vtbtn active" id="gridBtn" onclick="setView('grid')">⊞</div>
+          <div class="vtbtn" id="listBtn" onclick="setView('list')">☰</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="pgrid" id="pgrid">
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">🎧<div class="pbadges"><span class="pb pb-sale">-35%</span><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Lahore Wholesale</span><span class="dfast">⚡ Today</span></div><div class="pname">Wireless Earbuds Pro Max ANC</div><div class="prating"><span class="stars">★★★★★</span><span class="rcnt">(4.8) 234</span></div><div class="pprices"><span class="pnew">Rs 2,499</span><span class="pold">Rs 3,849</span><span class="psave">Save Rs 1,350</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">👟<div class="pbadges"><span class="pb pb-sale">-28%</span><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Karachi Market</span><span class="dfast">⚡ 1-2 Days</span></div><div class="pname">Nike Style Running Shoes</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.2) 89</span></div><div class="pprices"><span class="pnew">Rs 1,850</span><span class="pold">Rs 2,569</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">⌚<div class="pbadges"><span class="pb pb-imp">🌍 Imported</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>AliExpress</span><span class="dslow">📦 7-14d</span></div><div class="pname">Smart Watch Series X Pro</div><div class="prating"><span class="stars">★★★★★</span><span class="rcnt">(4.9) 512</span></div><div class="pprices"><span class="pnew">Rs 4,200</span><span class="pold">Rs 5,250</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">🎮<div class="pbadges"><span class="pb pb-sale">-20%</span><span class="pb pb-hot">🔥 HOT</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Islamabad</span><span class="dfast">⚡ Today</span></div><div class="pname">Wireless Gaming Controller</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.3) 167</span></div><div class="pprices"><span class="pnew">Rs 3,100</span><span class="pold">Rs 3,875</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">💄<div class="pbadges"><span class="pb pb-sale">-30%</span><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Karachi Beauty</span><span class="dfast">⚡ Today</span></div><div class="pname">Luxury Makeup Kit 12pcs Set</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.4) 203</span></div><div class="pprices"><span class="pnew">Rs 1,600</span><span class="pold">Rs 2,285</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">🔋<div class="pbadges"><span class="pb pb-new">NEW</span><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Lahore</span><span class="dfast">⚡ Today</span></div><div class="pname">Power Bank 20000mAh Fast Charge</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.1) 78</span></div><div class="pprices"><span class="pnew">Rs 1,800</span><span class="pold">Rs 2,200</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">🎒<div class="pbadges"><span class="pb pb-imp">🌍 Imported</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Amazon Global</span><span class="dslow">📦 10-15d</span></div><div class="pname">Travel Backpack 40L Waterproof</div><div class="prating"><span class="stars">★★★★★</span><span class="rcnt">(4.7) 341</span></div><div class="pprices"><span class="pnew">Rs 2,100</span><span class="pold">Rs 2,560</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">💡<div class="pbadges"><span class="pb pb-sale">-22%</span><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Rawalpindi</span><span class="dfast">⚡ 1-2 Days</span></div><div class="pname">Smart LED RGB Bulb Set 4pcs</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.1) 78</span></div><div class="pprices"><span class="pnew">Rs 890</span><span class="pold">Rs 1,140</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">🏋️<div class="pbadges"><span class="pb pb-imp">🌍 Imported</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Alibaba Direct</span><span class="dslow">📦 15-20d</span></div><div class="pname">Resistance Bands Set 5 Levels</div><div class="prating"><span class="stars">★★★★★</span><span class="rcnt">(4.8) 445</span></div><div class="pprices"><span class="pnew">Rs 1,200</span><span class="pold">Rs 1,500</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">👕<div class="pbadges"><span class="pb pb-sale">-25%</span><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Faisalabad Textile</span><span class="dfast">⚡ 1-2 Days</span></div><div class="pname">Premium Cotton Kurta Set</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.3) 156</span></div><div class="pprices"><span class="pnew">Rs 1,200</span><span class="pold">Rs 1,600</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">🍳<div class="pbadges"><span class="pb pb-local">🇵🇰 Local</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Karachi</span><span class="dfast">⚡ Today</span></div><div class="pname">Non-Stick Frying Pan Set 3pcs</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.2) 92</span></div><div class="pprices"><span class="pnew">Rs 2,200</span><span class="pold">Rs 2,800</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+      <div class="pcard" onclick="window.location='product-detail.html'">
+        <div class="pimg">📱<div class="pbadges"><span class="pb pb-sale">-18%</span><span class="pb pb-hot">🔥</span></div><div class="wbtn">🤍</div></div>
+        <div class="pinfo"><div class="psrc"><span>Local</span><span class="dfast">⚡ Today</span></div><div class="pname">Phone Stand Adjustable Foldable</div><div class="prating"><span class="stars">★★★★☆</span><span class="rcnt">(4.0) 67</span></div><div class="pprices"><span class="pnew">Rs 450</span><span class="pold">Rs 549</span></div><div class="pbtns"><button class="bcart">🛒 Cart</button><button class="bbuy">Buy Now</button></div></div>
+      </div>
+
+    </div>
+
+    <div class="load-more">
+      <button class="btn-lm" onclick="loadMore()">Load More Products ↓</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Birbal Mart</span>. All rights reserved.</p>
+  <div class="ntn-badge">🏛️ FBR Registered ✅</div>
+  <p>Powered by <span>Birbal AI 👑</span></p>
+</footer>
+
+<!-- BIRBAL POPUP -->
+<div class="birbal-pop" id="bPop">
+  <div class="pop-hdr">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div style="width:36px;height:36px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">👑</div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--gold)">Birbal AI</div><div style="font-size:11px;color:var(--green)">● Online</div></div>
+    </div>
+    <div class="pop-close" onclick="toggleBirbal()">✕</div>
+  </div>
+  <div class="pop-msgs" id="pMsgs">
+    <div class="bub bub-a"><strong>Aadab! 👑</strong><br/>Products mein se kuch dhundna hai? Budget batayein!</div>
+  </div>
+  <div class="pop-quick">
+    <span class="qchip" onclick="pAsk('Shoes under 2000')">👟 Shoes</span>
+    <span class="qchip" onclick="pAsk('Best electronics deals')">📱 Electronics</span>
+    <span class="qchip" onclick="pAsk('Local fast delivery products')">⚡ Fast Delivery</span>
+  </div>
+  <div class="pop-inp-row">
+    <input class="cinp" type="text" placeholder="Budget ya product..." id="pInp" onkeypress="if(event.key==='Enter')pSend()"/>
+    <button class="sbtn" onclick="pSend()">➤</button>
+  </div>
+</div>
+
+<!-- FLOAT -->
+<div class="float-stack">
+  <a href="https://wa.me/923059192790" target="_blank"><button class="fbtn fb-wa">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button></a>
+  <button class="fbtn fb-birbal" onclick="toggleBirbal()">👑</button>
+</div>
+
+<script>
+function doSearch(){const q=document.getElementById('sInp').value;if(q)window.location.href=`products.html?q=${encodeURIComponent(q)}`;}
+function setCat(el,cat){document.querySelectorAll('.cpill').forEach(c=>c.classList.remove('active'));el.classList.add('active');}
+function filterSource(el,src){document.querySelectorAll('.src-btn').forEach(s=>s.classList.remove('active'));el.classList.add('active');}
+function applyPrice(){const min=document.getElementById('pmin').value,max=document.getElementById('pmax').value;console.log('Filter:',min,max);}
+function setView(v){
+  const grid=document.getElementById('pgrid');
+  document.getElementById('gridBtn').classList.toggle('active',v==='grid');
+  document.getElementById('listBtn').classList.toggle('active',v==='list');
+  grid.style.gridTemplateColumns=v==='list'?'1fr':'';
+  grid.querySelectorAll('.pcard').forEach(c=>c.classList.toggle('list-view',v==='list'));
+}
+function loadMore(){alert('More products loading... (Backend needed for real products)');}
+function toggleBirbal(){document.getElementById('bPop').classList.toggle('open');}
+const bResp=msg=>{
+  msg=msg.toLowerCase();
+  if(msg.includes('shoes'))return`👟 Local shoes under budget:<br/>• Nike Style — Rs 1,850 ⚡<br/>• Adidas Lite — Rs 2,100 ⚡<br/>COD available!`;
+  if(msg.includes('electronics'))return`📱 Best electronics deals:<br/>• Earbuds Pro — Rs 2,499 ⚡<br/>• Smart Watch — Rs 4,200 📦<br/>• Power Bank — Rs 1,800 ⚡`;
+  if(msg.includes('fast')||msg.includes('delivery'))return`⚡ Same day delivery products:<br/>• Earbuds — Rs 2,499<br/>• Makeup Kit — Rs 1,600<br/>• LED Bulbs — Rs 890`;
+  return`Samajh gaya! Budget aur category batayein — dhundh deta hun! 🔍`;
+};
+function pAsk(t){document.getElementById('pInp').value=t;pSend();}
+function pSend(){
+  const inp=document.getElementById('pInp'),msgs=document.getElementById('pMsgs'),t=inp.value.trim();
+  if(!t)return;
+  const u=document.createElement('div');u.className='bub bub-u';u.textContent=t;msgs.appendChild(u);
+  inp.value='';msgs.scrollTop=msgs.scrollHeight;
+  setTimeout(()=>{const a=document.createElement('div');a.className='bub bub-a';a.innerHTML=bResp(t);msgs.appendChild(a);msgs.scrollTop=msgs.scrollHeight;},700);
+}
+document.querySelectorAll('.wbtn').forEach(b=>{b.addEventListener('click',e=>{e.stopPropagation();b.classList.toggle('active');b.textContent=b.classList.contains('active')?'❤️':'🤍';});});
+</script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="favicon.png"/>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Review your cart and checkout securely. Cash on Delivery available."/>
+  <meta name="keywords" content="birbal mart, online shopping pakistan, AI shopping, cash on delivery, ecommerce pakistan"/>
+  <meta name="author" content="Birbal Mart"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Your Cart — Birbal Mart"/>
+  <meta property="og:description" content="Review your cart and checkout securely. Cash on Delivery available."/>
+  <meta property="og:url" content="https://birbalmart.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://birbalmart.com/favicon.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Your Cart — Birbal Mart"/>
+  <meta name="twitter:description" content="Review your cart and checkout securely. Cash on Delivery available."/>
+  <link rel="canonical" href="https://birbalmart.com/cart.html"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart — Birbal Mart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold:#C9A84C;--gold-dark:#8B6914;--bg:#0A0705;--bg2:#110E08;
+      --bg3:#1A1508;--text:#F5EDD6;--text-muted:#9A8A6A;--red:#C0392B;
+      --green:#27AE60;--white:#FFF8EC;--border:rgba(255,255,255,0.07);
+      --gold-border:rgba(201,168,76,0.2);
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;}
+    nav{position:sticky;top:0;z-index:200;background:rgba(10,7,5,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-emblem{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:20px;font-weight:900;color:var(--bg);}
+    .logo-text span:first-child{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);display:block;line-height:1;}
+    .logo-text span:last-child{font-size:9px;color:var(--text-muted);letter-spacing:2.5px;text-transform:uppercase;}
+    .nav-right{display:flex;align-items:center;gap:10px;}
+    .nav-icon-btn{width:38px;height:38px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;text-decoration:none;}
+    .btn-ask{padding:9px 18px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    .page-header{padding:32px 40px 0;max-width:1300px;margin:0 auto;}
+    .page-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--white);}
+    .page-sub{color:var(--text-muted);font-size:14px;margin-top:6px;}
+
+    .cart-layout{display:grid;grid-template-columns:1fr 380px;gap:28px;padding:28px 40px 60px;max-width:1300px;margin:0 auto;}
+
+    /* Cart Items */
+    .cart-items{}
+    .cart-item{background:var(--bg2);border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;gap:18px;margin-bottom:14px;transition:all 0.3s;animation:fadeUp 0.4s ease both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .cart-item:nth-child(1){animation-delay:0.05s}
+    .cart-item:nth-child(2){animation-delay:0.1s}
+    .cart-item:nth-child(3){animation-delay:0.15s}
+    .item-img{width:100px;height:100px;background:var(--bg3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:44px;flex-shrink:0;}
+    .item-details{flex:1;}
+    .item-source{font-size:10px;font-weight:700;color:#2ecc71;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;}
+    .item-name{font-size:15px;font-weight:600;color:var(--white);margin-bottom:4px;}
+    .item-variant{font-size:12px;color:var(--text-muted);margin-bottom:12px;}
+    .item-bottom{display:flex;align-items:center;justify-content:space-between;}
+    .item-price{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);}
+    .item-old-price{font-size:12px;color:var(--text-muted);text-decoration:line-through;margin-left:6px;}
+    .item-actions{display:flex;align-items:center;gap:10px;}
+    .qty-ctrl{display:flex;align-items:center;background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    .qty-btn{width:34px;height:34px;background:transparent;border:none;color:var(--gold);font-size:16px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+    .qty-val{width:36px;text-align:center;font-size:14px;font-weight:700;color:var(--white);}
+    .btn-remove{width:34px;height:34px;background:rgba(192,57,43,0.1);border:1px solid rgba(192,57,43,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all 0.2s;}
+    .btn-remove:hover{background:rgba(192,57,43,0.25);}
+    .delivery-badge{font-size:11px;font-weight:600;color:#2ecc71;background:rgba(39,174,96,0.1);border:1px solid rgba(39,174,96,0.2);padding:3px 10px;border-radius:100px;margin-top:8px;display:inline-block;}
+
+    /* Empty cart */
+    .empty-cart{text-align:center;padding:80px 40px;}
+    .empty-icon{font-size:80px;margin-bottom:20px;}
+    .empty-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--white);margin-bottom:10px;}
+    .empty-sub{color:var(--text-muted);font-size:15px;margin-bottom:28px;}
+    .btn-shop{padding:14px 36px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+    /* Order Summary */
+    .order-summary{position:sticky;top:90px;height:fit-content;}
+    .summary-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:24px;}
+    .summary-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:20px;}
+    .summary-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
+    .summary-row:last-of-type{border-bottom:none;}
+    .summary-label{color:var(--text-muted);}
+    .summary-val{color:var(--text);font-weight:500;}
+    .summary-total{display:flex;justify-content:space-between;align-items:center;padding:16px 0 20px;border-top:1px solid var(--border);margin-top:8px;}
+    .total-label{font-size:16px;font-weight:700;color:var(--white);}
+    .total-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--gold);}
+    .btn-checkout{width:100%;padding:16px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg);border:none;border-radius:14px;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.3s;margin-bottom:12px;}
+    .btn-checkout:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,168,76,0.4);}
+    .btn-continue{width:100%;padding:14px;background:transparent;border:1px solid var(--border);border-radius:14px;color:var(--text-muted);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+    .btn-continue:hover{border-color:var(--gold-border);color:var(--gold);}
+    .payment-methods{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+    .pay-badge{padding:6px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;font-size:11px;color:var(--text-muted);}
+    .coupon-section{margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
+    .coupon-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:10px;}
+    .coupon-input{display:flex;gap:8px;}
+    .coupon-input input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;outline:none;}
+    .coupon-input input::placeholder{color:var(--text-muted);}
+    .btn-apply{padding:10px 16px;background:rgba(201,168,76,0.12);border:1px solid var(--gold-border);border-radius:10px;color:var(--gold);font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;}
+    .trust-row{display:flex;gap:12px;margin-top:16px;}
+    .trust-item{flex:1;text-align:center;font-size:11px;color:var(--text-muted);}
+    .trust-item span{display:block;font-size:18px;margin-bottom:4px;}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 40px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text-muted);}
+    footer span{color:var(--gold);}
+    .ntn{padding:5px 12px;background:rgba(201,168,76,0.08);border:1px solid var(--gold-border);border-radius:6px;font-size:11px;color:var(--gold);}
+
+    @media(max-width:900px){.cart-layout{grid-template-columns:1fr}.order-summary{position:static}nav{padding:12px 16px}.page-header{padding:24px 16px 0}.cart-layout{padding:20px 16px 48px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-emblem">B</div>
+    <div class="logo-text"><span>Birbal Mart</span><span>AI Shopping</span></div>
+  </a>
+  <div class="nav-right">
+    <a href="wishlist.html" class="nav-icon-btn">❤️</a>
+    <a href="login.html" class="nav-icon-btn">👤</a>
+    <button class="btn-ask">👑 Ask Birbal</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1 class="page-title">🛒 Your Cart</h1>
+  <p class="page-sub">3 items — Review before checkout</p>
+</div>
+
+<div class="cart-layout">
+  <div class="cart-items">
+    <div class="cart-item">
+      <div class="item-img">🎧</div>
+      <div class="item-details">
+        <div class="item-source">🇵🇰 Local — Same Day Delivery</div>
+        <div class="item-name">Wireless Earbuds Pro Max</div>
+        <div class="item-variant">Color: Black | Size: One Size</div>
+        <span class="delivery-badge">⚡ Delivery Today</span>
+        <div class="item-bottom" style="margin-top:10px">
+          <div><span class="item-price">Rs 2,499</span><span class="item-old-price">Rs 3,299</span></div>
+          <div class="item-actions">
+            <div class="qty-ctrl">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <div class="qty-val">1</div>
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <div class="btn-remove">🗑️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="item-img">👟</div>
+      <div class="item-details">
+        <div class="item-source">🇵🇰 Local — 1-2 Days</div>
+        <div class="item-name">Sports Running Shoes</div>
+        <div class="item-variant">Color: White | Size: 42</div>
+        <span class="delivery-badge">⚡ Fast Delivery</span>
+        <div class="item-bottom" style="margin-top:10px">
+          <div><span class="item-price">Rs 1,850</span><span class="item-old-price">Rs 2,650</span></div>
+          <div class="item-actions">
+            <div class="qty-ctrl">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <div class="qty-val">1</div>
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <div class="btn-remove">🗑️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-item">
+      <div class="item-img">⌚</div>
+      <div class="item-details">
+        <div class="item-source" style="color:var(--gold)">🌍 Imported — 7-14 Days</div>
+        <div class="item-name">Smart Watch Series X Pro</div>
+        <div class="item-variant">Color: Gold | Size: 44mm</div>
+        <span class="delivery-badge" style="color:var(--gold);background:rgba(201,168,76,0.1);border-color:var(--gold-border)">📦 Online Payment Required</span>
+        <div class="item-bottom" style="margin-top:10px">
+          <div><span class="item-price">Rs 4,200</span><span class="item-old-price">Rs 5,250</span></div>
+          <div class="item-actions">
+            <div class="qty-ctrl">
+              <button class="qty-btn" onclick="changeQty(this,-1)">−</button>
+              <div class="qty-val">1</div>
+              <button class="qty-btn" onclick="changeQty(this,1)">+</button>
+            </div>
+            <div class="btn-remove">🗑️</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-summary">
+    <div class="summary-card">
+      <div class="summary-title">Order Summary</div>
+      <div class="summary-row"><span class="summary-label">Subtotal (3 items)</span><span class="summary-val">Rs 8,549</span></div>
+      <div class="summary-row"><span class="summary-label">Discount</span><span class="summary-val" style="color:#2ecc71">− Rs 2,200</span></div>
+      <div class="summary-row"><span class="summary-label">Delivery Charges</span><span class="summary-val" style="color:#2ecc71">FREE ✅</span></div>
+      <div class="summary-row"><span class="summary-label">COD Fee</span><span class="summary-val">Rs 0</span></div>
+      <div class="summary-total">
+        <span class="total-label">Total</span>
+        <span class="total-val">Rs 8,549</span>
+      </div>
+      <button class="btn-checkout" onclick="window.location.href='checkout.html'">Proceed to Checkout →</button>
+      <button class="btn-continue" onclick="window.location.href='products.html'">← Continue Shopping</button>
+      <div class="payment-methods">
+        <span class="pay-badge">💵 Cash on Delivery</span>
+        <span class="pay-badge">📱 JazzCash</span>
+        <span class="pay-badge">📱 EasyPaisa</span>
+        <span class="pay-badge">💳 Card</span>
+      </div>
+      <div class="coupon-section">
+        <div class="coupon-title">🎟️ Coupon Code</div>
+        <div class="coupon-input">
+          <input type="text" placeholder="Enter coupon code"/>
+          <button class="btn-apply">Apply</button>
+        </div>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><span>🔒</span>Secure</div>
+        <div class="trust-item"><span>↩️</span>Returns</div>
+        <div class="trust-item"><span>✅</span>Verified</div>
+        <div class="trust-item"><span>🛡️</span>Protected</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>Birbal Mart</span>. All rights reserved.</p>
+  <span class="ntn">🏛️ FBR Registered ✅</span>
+  <p>Powered by <span>Birbal AI 👑</span></p>
+</footer>
+
+<script>
+function changeQty(btn, n) {
+  const ctrl = btn.parentElement;
+  const val = ctrl.querySelector('.qty-val');
+  let q = parseInt(val.textContent) + n;
+  if (q < 1) q = 1;
+  val.textContent = q;
+}
+</script>
+  <!-- WhatsApp Floating Button -->
+  <style>
+    .wa-float{position:fixed;bottom:90px;right:28px;z-index:9998;}
+    .wa-btn{width:56px;height:56px;background:#25D366;border-radius:18px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.4);transition:all 0.3s;animation:waPulse 2s ease-in-out infinite;}
+    .wa-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,0.6);animation:none;}
+    @keyframes waPulse{0%,100%{transform:translateY(0);box-shadow:0 8px 24px rgba(37,211,102,0.4);}50%{transform:translateY(-4px);box-shadow:0 16px 36px rgba(37,211,102,0.6);}}
+    .wa-btn svg{width:28px;height:28px;fill:white;}
+    .wa-tooltip{position:absolute;right:68px;top:50%;transform:translateY(-50%);background:#25D366;color:white;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity 0.3s;font-family:"DM Sans",sans-serif;}
+    .wa-float:hover .wa-tooltip{opacity:1;}
+  </style>
+  <div class="wa-float">
+    <div class="wa-tooltip">Chat on WhatsApp 💬</div>
+    <a href="https://wa.me/923059192790?text=Hi%20Birbal%20Mart!%20I%20need%20help%20with%20shopping" target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

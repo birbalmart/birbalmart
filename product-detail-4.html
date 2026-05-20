@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="favicon.png"/>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Premium quality products at best prices. Cash on Delivery available. FBR Registered store."/>
+  <meta name="keywords" content="birbal mart, online shopping pakistan, AI shopping, cash on delivery, ecommerce pakistan"/>
+  <meta name="author" content="Birbal Mart"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Product Detail — Birbal Mart"/>
+  <meta property="og:description" content="Premium quality products at best prices. Cash on Delivery available. FBR Registered store."/>
+  <meta property="og:url" content="https://birbalmart.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://birbalmart.com/favicon.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Product Detail — Birbal Mart"/>
+  <meta name="twitter:description" content="Premium quality products at best prices. Cash on Delivery available. FBR Registered store."/>
+  <link rel="canonical" href="https://birbalmart.com/product-detail.html"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Detail — Birbal Mart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #F0D080;
+      --gold-dark: #8B6914;
+      --bg: #0A0705;
+      --bg2: #110E08;
+      --bg3: #1A1508;
+      --bg4: #201A0A;
+      --text: #F5EDD6;
+      --text-muted: #9A8A6A;
+      --red: #C0392B;
+      --green: #27AE60;
+      --white: #FFF8EC;
+      --border: rgba(255,255,255,0.07);
+      --gold-border: rgba(201,168,76,0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(10,7,5,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 40px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-emblem {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 900; color: var(--bg);
+    }
+    .logo-text span:first-child {
+      font-family: 'Playfair Display', serif; font-size: 18px;
+      font-weight: 700; color: var(--gold); display: block; line-height: 1;
+    }
+    .logo-text span:last-child {
+      font-size: 9px; color: var(--text-muted);
+      letter-spacing: 2.5px; text-transform: uppercase;
+    }
+
+    .nav-search { flex: 1; max-width: 480px; position: relative; }
+    .nav-search input {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 10px 44px 10px 16px;
+      color: var(--text); font-size: 13px; font-family: 'DM Sans', sans-serif; outline: none;
+    }
+    .nav-search input::placeholder { color: var(--text-muted); }
+    .search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-icon-btn {
+      width: 38px; height: 38px; background: var(--bg2);
+      border: 1px solid var(--border); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 15px; text-decoration: none; position: relative;
+    }
+    .nav-badge {
+      position: absolute; top: -5px; right: -5px;
+      width: 17px; height: 17px; background: var(--red);
+      border-radius: 50%; font-size: 9px; font-weight: 700;
+      color: white; display: flex; align-items: center; justify-content: center;
+    }
+    .btn-ask {
+      display: flex; align-items: center; gap: 7px;
+      padding: 9px 18px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--bg); border: none; border-radius: 10px;
+      font-size: 13px; font-weight: 700; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      padding: 16px 40px;
+      font-size: 13px; color: var(--text-muted);
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: var(--gold); }
+
+    /* MAIN PRODUCT SECTION */
+    .product-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding: 40px 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* LEFT — Images */
+    .product-images {}
+
+    .main-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 140px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .main-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(201,168,76,0.06), transparent 60%);
+    }
+
+    .img-badges {
+      position: absolute;
+      top: 16px; left: 16px;
+      display: flex; flex-direction: column; gap: 6px;
+      z-index: 2;
+    }
+
+    .badge-hot {
+      background: var(--red); color: white;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+
+    .badge-local {
+      background: rgba(39,174,96,0.9); color: white;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 6px;
+    }
+
+    .thumb-images {
+      display: flex; gap: 10px;
+    }
+
+    .thumb {
+      flex: 1; aspect-ratio: 1;
+      background: var(--bg2);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      display: flex; align-items: center;
+      justify-content: center; font-size: 28px;
+      cursor: pointer; transition: all 0.2s;
+    }
+
+    .thumb.active { border-color: var(--gold); }
+    .thumb:hover { border-color: var(--gold-border); }
+
+    /* RIGHT — Info */
+    .product-info { animation: fadeUp 0.6s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .product-source-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .source-pill {
+      padding: 4px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .source-local {
+      background: rgba(39,174,96,0.12);
+      border: 1px solid rgba(39,174,96,0.3);
+      color: #2ecc71;
+    }
+
+    .source-imported {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold-border);
+      color: var(--gold);
+    }
+
+    .delivery-pill {
+      padding: 4px 12px; border-radius: 100px;
+      font-size: 11px; font-weight: 600;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px; font-weight: 800;
+      line-height: 1.2; margin-bottom: 14px;
+      color: var(--white);
+    }
+
+    .rating-row {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stars { color: var(--gold); font-size: 16px; letter-spacing: 1px; }
+    .rating-num { font-size: 14px; color: var(--text-muted); }
+    .reviews-count {
+      font-size: 13px; color: var(--gold);
+      text-decoration: underline; cursor: pointer;
+    }
+
+    .price-section {
+      display: flex; align-items: baseline; gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .price-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px; font-weight: 900;
+      color: var(--gold);
+    }
+
+    .price-old {
+      font-size: 20px; color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .price-save {
+      font-size: 13px; font-weight: 700;
+      color: #2ecc71;
+      background: rgba(39,174,96,0.1);
+      border: 1px solid rgba(39,174,96,0.2);
+      padding: 3px 10px; border-radius: 6px;
+    }
+
+    .payment-note {
+      font-size: 13px; color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .payment-note span { color: #2ecc71; font-weight: 600; }
+
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    /* Variants */
+    .variant-section { margin-bottom: 20px; }
+    .variant-label {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      color: var(--text-muted); margin-bottom: 10px;
+    }
+
+    .variant-options { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .variant-btn {
+      padding: 8px 18px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 13px; font-weight: 500;
+      cursor: pointer; transition: all 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .variant-btn:hover { border-color: var(--gold-border); color: var(--text); }
+    .variant-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(201,168,76,0.08);
+    }
+
+    .color-btn {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer; transition: all 0.2s;
+    }
+
+    .color-btn.active { border-color: var(--gold); transform: scale(1.15); }
+
+    /* Quantity */
+    .qty-section { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+    .qty-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); }
+
+    .qty-control {
+      display: flex; align-items: center; gap: 0;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+    }
+
+    .qty-btn {
+      width: 40px; height: 40px;
+      background: transparent; border: none;
+      color: var(--gold); font-size: 18px;
+      cursor: pointer; transition: background 0.2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .qty-btn:hover { background: rgba(201,168,76,0.1); }
+
+    .qty-num {
+      width: 44px; text-align: center;
+      font-size: 16px; font-weight: 700;
+      color: var(--white);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      line-height: 40px;
+    }
+
+    /* CTA Buttons */
+    .cta-buttons { display: flex; gap: 12px; margin-bottom: 20px; }
+
+    .btn-cart {
+      flex: 1; padding: 16px;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      border-radius: 14px;
+      color: var(--gold); font-size: 15px;
+      font-weight: 700; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.3s;
+      display: flex; align-items: center;
+      justify-content: center; gap: 8px;
+    }
+
+    .btn-cart:hover { background: rgba(201,168,76,0.08); }
+
+    .btn-buy {
+      flex: 2; padding: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border: none; border-radius: 14px;
+      color: var(--bg); font-size: 15px;
+      font-weight: 700; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.3s;
+      display: flex; align-items: center;
+      justify-content: center; gap: 8px;
+    }
+
+    .btn-buy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+    }
+
+    .btn-wishlist {
+      width: 52px; height: 52px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 20px; cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-wishlist:hover {
+      border-color: rgba(192,57,43,0.4);
+      background: rgba(192,57,43,0.08);
+    }
+
+    /* Trust badges */
+    .trust-badges {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px; margin-bottom: 20px;
+    }
+
+    .trust-badge {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .trust-icon { font-size: 20px; margin-bottom: 5px; }
+    .trust-text { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+    .trust-text strong { color: var(--text); display: block; font-size: 12px; }
+
+    /* Delivery info */
+    .delivery-info {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .delivery-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .delivery-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .delivery-row:first-child { padding-top: 0; }
+
+    .delivery-icon { font-size: 20px; width: 28px; text-align: center; }
+    .delivery-detail {}
+    .delivery-title { font-size: 13px; font-weight: 600; color: var(--white); }
+    .delivery-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    /* TABS SECTION */
+    .tabs-section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 40px 60px;
+    }
+
+    .tabs {
+      display: flex; gap: 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .tab-btn {
+      padding: 14px 28px;
+      background: transparent;
+      border: none; border-bottom: 2px solid transparent;
+      color: var(--text-muted); font-size: 14px;
+      font-weight: 600; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Description */
+    .description-content {}
+    .desc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700;
+      margin-bottom: 16px; color: var(--white);
+    }
+
+    .desc-text {
+      font-size: 15px; color: var(--text-muted);
+      line-height: 1.8; margin-bottom: 24px;
+    }
+
+    .features-list {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .feature-item {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px;
+    }
+
+    .feature-icon { font-size: 20px; }
+    .feature-text { font-size: 13px; color: var(--text-muted); }
+    .feature-text strong { color: var(--white); display: block; font-size: 14px; }
+
+    /* Specs */
+    .specs-table { width: 100%; border-collapse: collapse; }
+    .specs-table tr { border-bottom: 1px solid var(--border); }
+    .specs-table td {
+      padding: 14px 16px; font-size: 14px;
+    }
+    .specs-table td:first-child {
+      color: var(--text-muted); width: 40%;
+      font-weight: 500;
+    }
+    .specs-table td:last-child { color: var(--white); }
+    .specs-table tr:last-child { border-bottom: none; }
+
+    /* Reviews */
+    .reviews-summary {
+      display: flex; gap: 40px;
+      align-items: center;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+
+    .review-big-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+
+    .review-stars { color: var(--gold); font-size: 22px; margin: 6px 0; }
+    .review-total { font-size: 13px; color: var(--text-muted); }
+
+    .rating-bars { flex: 1; }
+
+    .rating-bar-row {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 7px;
+    }
+
+    .bar-label { font-size: 12px; color: var(--text-muted); width: 30px; }
+
+    .bar-track {
+      flex: 1; height: 6px;
+      background: var(--bg3); border-radius: 3px; overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+      border-radius: 3px;
+    }
+
+    .bar-count { font-size: 12px; color: var(--text-muted); width: 24px; text-align: right; }
+
+    .review-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .reviewer-row {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 10px;
+    }
+
+    .reviewer-name { font-size: 14px; font-weight: 600; color: var(--white); }
+    .reviewer-date { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+    .review-stars-sm { color: var(--gold); font-size: 13px; }
+
+    .review-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    .verified-badge {
+      font-size: 11px; color: #2ecc71;
+      display: flex; align-items: center; gap: 4px;
+      margin-top: 10px;
+    }
+
+    /* RELATED PRODUCTS */
+    .related-section {
+      max-width: 1300px; margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .section-header {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 24px;
+    }
+
+    .section-tag {
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: 3px; color: var(--gold); font-weight: 600;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 800; color: var(--white);
+      margin-top: 4px;
+    }
+
+    .view-all { color: var(--gold); font-size: 13px; text-decoration: none; }
+
+    .related-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .related-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+      transition: all 0.3s; cursor: pointer;
+    }
+
+    .related-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .related-img {
+      height: 140px; background: var(--bg3);
+      display: flex; align-items: center;
+      justify-content: center; font-size: 44px;
+    }
+
+    .related-info { padding: 14px; }
+    .related-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+    .related-price { color: var(--gold); font-size: 15px; font-weight: 700; }
+
+    /* BIRBAL FLOAT */
+    .birbal-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 300;
+    }
+
+    .birbal-float-btn {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border: none; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; cursor: pointer;
+      box-shadow: 0 8px 28px rgba(201,168,76,0.4);
+      animation: floatPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes floatPulse {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 48px 40px 28px;
+    }
+
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 40px;
+    }
+
+    .footer-brand-desc {
+      font-size: 14px; color: var(--text-muted);
+      line-height: 1.7; margin-top: 14px;
+    }
+
+    .footer-col h4 {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      color: var(--gold); margin-bottom: 16px;
+    }
+
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-muted);
+    }
+
+    .footer-bottom span { color: var(--gold); }
+
+    .ntn-badge {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid var(--gold-border);
+      border-radius: 8px; padding: 6px 14px;
+      font-size: 11px; color: var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      .product-section { grid-template-columns: 1fr; gap: 32px; padding: 24px 20px; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-list { grid-template-columns: 1fr; }
+      nav { padding: 12px 16px; }
+      .breadcrumb { padding: 12px 16px; }
+      .tabs-section, .related-section { padding: 0 20px 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-emblem">B</div>
+    <div class="logo-text">
+      <span>Birbal Mart</span>
+      <span>AI Shopping</span>
+    </div>
+  </a>
+  <div class="nav-search">
+    <input type="text" placeholder="Search products..."/>
+    <span class="search-icon">🔍</span>
+  </div>
+  <div class="nav-right">
+    <a href="wishlist.html" class="nav-icon-btn">❤️</a>
+    <a href="cart.html" class="nav-icon-btn">
+      🛒<span class="nav-badge">3</span>
+    </a>
+    <a href="login.html" class="nav-icon-btn">👤</a>
+    <button class="btn-ask">👑 Ask Birbal</button>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a> ›
+  <a href="products.html">Electronics</a> ›
+  <span>Wireless Earbuds Pro Max</span>
+</div>
+
+<!-- PRODUCT SECTION -->
+<div class="product-section">
+
+  <!-- LEFT: Images -->
+  <div class="product-images">
+    <div class="main-image">
+      🎧
+      <div class="img-badges">
+        <span class="badge-hot">🔥 -25% OFF</span>
+        <span class="badge-local">🇵🇰 Local Stock</span>
+      </div>
+    </div>
+    <div class="thumb-images">
+      <div class="thumb active">🎧</div>
+      <div class="thumb">📦</div>
+      <div class="thumb">🔋</div>
+      <div class="thumb">📱</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Info -->
+  <div class="product-info">
+    <div class="product-source-row">
+      <span class="source-pill source-local">🇵🇰 Local Pakistan</span>
+      <span class="delivery-pill">⚡ Same Day Delivery</span>
+    </div>
+
+    <h1 class="product-title">Wireless Earbuds Pro Max — Active Noise Cancellation</h1>
+
+    <div class="rating-row">
+      <span class="stars">★★★★★</span>
+      <span class="rating-num">4.8/5</span>
+      <span class="reviews-count">234 reviews</span>
+    </div>
+
+    <div class="price-section">
+      <span class="price-main">Rs 2,499</span>
+      <span class="price-old">Rs 3,299</span>
+      <span class="price-save">Save Rs 800!</span>
+    </div>
+
+    <p class="payment-note">
+      ✅ <span>Cash on Delivery available</span> — JazzCash & EasyPaisa accepted
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Color -->
+    <div class="variant-section">
+      <div class="variant-label">Color</div>
+      <div class="variant-options">
+        <div class="color-btn active" style="background:#1a1a2e;" onclick="setActive(this, 'color')"></div>
+        <div class="color-btn" style="background:#f5f5f5;" onclick="setActive(this, 'color')"></div>
+        <div class="color-btn" style="background:#C9A84C;" onclick="setActive(this, 'color')"></div>
+        <div class="color-btn" style="background:#2C3E50;" onclick="setActive(this, 'color')"></div>
+      </div>
+    </div>
+
+    <!-- Quantity -->
+    <div class="qty-section">
+      <span class="qty-label">Quantity</span>
+      <div class="qty-control">
+        <button class="qty-btn" onclick="changeQty(-1)">−</button>
+        <div class="qty-num" id="qty">1</div>
+        <button class="qty-btn" onclick="changeQty(1)">+</button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-buttons">
+      <button class="btn-cart">🛒 Add to Cart</button>
+      <button class="btn-buy">⚡ Buy Now</button>
+      <div class="btn-wishlist">🤍</div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-text">
+          <strong>Secure Payment</strong>
+          100% Safe
+        </div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon">↩️</div>
+        <div class="trust-text">
+          <strong>Easy Returns</strong>
+          7 Days Policy
+        </div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon">✅</div>
+        <div class="trust-text">
+          <strong>FBR Verified</strong>
+          NTN Registered
+        </div>
+      </div>
+    </div>
+
+    <!-- Delivery Info -->
+    <div class="delivery-info">
+      <div class="delivery-row">
+        <div class="delivery-icon">⚡</div>
+        <div class="delivery-detail">
+          <div class="delivery-title">Same Day Delivery</div>
+          <div class="delivery-sub">Order before 3 PM — delivered today!</div>
+        </div>
+      </div>
+      <div class="delivery-row">
+        <div class="delivery-icon">💵</div>
+        <div class="delivery-detail">
+          <div class="delivery-title">Cash on Delivery</div>
+          <div class="delivery-sub">Pay when you receive your order</div>
+        </div>
+      </div>
+      <div class="delivery-row">
+        <div class="delivery-icon">↩️</div>
+        <div class="delivery-detail">
+          <div class="delivery-title">7 Day Return Policy</div>
+          <div class="delivery-sub">Not satisfied? Return easily!</div>
+        </div>
+      </div>
+      <div class="delivery-row">
+        <div class="delivery-icon">🛡️</div>
+        <div class="delivery-detail">
+          <div class="delivery-title">Buyer Protection</div>
+          <div class="delivery-sub">100% refund if product not received</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-section">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('description', this)">Description</button>
+    <button class="tab-btn" onclick="showTab('specs', this)">Specifications</button>
+    <button class="tab-btn" onclick="showTab('reviews', this)">Reviews (234)</button>
+  </div>
+
+  <!-- Description -->
+  <div class="tab-content active" id="tab-description">
+    <p class="desc-text">
+      Experience premium sound quality with our Wireless Earbuds Pro Max. Featuring Active Noise Cancellation technology, these earbuds block out background noise so you can focus on what matters most — your music, calls, or podcasts. With a 30-hour total battery life and fast charging, you'll never run out of power. The ergonomic design ensures a comfortable fit for all-day wear.
+    </p>
+    <div class="features-list">
+      <div class="feature-item">
+        <span class="feature-icon">🎵</span>
+        <div class="feature-text">
+          <strong>Premium Sound</strong>
+          Hi-Fi audio with deep bass
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🔇</span>
+        <div class="feature-text">
+          <strong>Active Noise Cancellation</strong>
+          Block out the world
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">🔋</span>
+        <div class="feature-text">
+          <strong>30 Hour Battery</strong>
+          6hrs + 24hrs with case
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">💧</span>
+        <div class="feature-text">
+          <strong>IPX5 Waterproof</strong>
+          Sweat & rain resistant
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">📞</span>
+        <div class="feature-text">
+          <strong>Crystal Clear Calls</strong>
+          Dual microphone system
+        </div>
+      </div>
+      <div class="feature-item">
+        <span class="feature-icon">⚡</span>
+        <div class="feature-text">
+          <strong>Fast Charging</strong>
+          15 mins = 2 hours play
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specs -->
+  <div class="tab-content" id="tab-specs">
+    <table class="specs-table">
+      <tr><td>Brand</td><td>ProMax Audio</td></tr>
+      <tr><td>Model</td><td>TWS-Pro Max 2024</td></tr>
+      <tr><td>Connectivity</td><td>Bluetooth 5.3</td></tr>
+      <tr><td>Battery Life</td><td>6 hours (30 with case)</td></tr>
+      <tr><td>Charging</td><td>USB-C Fast Charging</td></tr>
+      <tr><td>Water Resistance</td><td>IPX5</td></tr>
+      <tr><td>Noise Cancellation</td><td>Active (ANC)</td></tr>
+      <tr><td>Driver Size</td><td>10mm Dynamic</td></tr>
+      <tr><td>Frequency Range</td><td>20Hz - 20kHz</td></tr>
+      <tr><td>Weight</td><td>5g per earbud</td></tr>
+      <tr><td>Colors Available</td><td>Black, White, Gold, Navy</td></tr>
+      <tr><td>Warranty</td><td>6 Months</td></tr>
+      <tr><td>Source</td><td>🇵🇰 Local Pakistan Stock</td></tr>
+      <tr><td>Delivery</td><td>Same Day (Order before 3PM)</td></tr>
+    </table>
+  </div>
+
+  <!-- Reviews -->
+  <div class="tab-content" id="tab-reviews">
+    <div class="reviews-summary">
+      <div>
+        <div class="review-big-num">4.8</div>
+        <div class="review-stars">★★★★★</div>
+        <div class="review-total">234 reviews</div>
+      </div>
+      <div class="rating-bars">
+        <div class="rating-bar-row">
+          <span class="bar-label">5★</span>
+          <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+          <span class="bar-count">183</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">4★</span>
+          <div class="bar-track"><div class="bar-fill" style="width:14%"></div></div>
+          <span class="bar-count">33</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">3★</span>
+          <div class="bar-track"><div class="bar-fill" style="width:5%"></div></div>
+          <span class="bar-count">12</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">2★</span>
+          <div class="bar-track"><div class="bar-fill" style="width:2%"></div></div>
+          <span class="bar-count">4</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="bar-label">1★</span>
+          <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+          <span class="bar-count">2</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="reviewer-row">
+        <div>
+          <div class="reviewer-name">Ahmed Raza — Lahore</div>
+          <div class="reviewer-date">April 28, 2026</div>
+        </div>
+        <div class="review-stars-sm">★★★★★</div>
+      </div>
+      <p class="review-text">Kamaal ki earbuds hain! Sound quality bohot acha hai aur noise cancellation bhi kaam karta hai. Same day delivery mili — shukriya Birbal Mart! Zaroor dobara kharidun ga.</p>
+      <div class="verified-badge">✅ Verified Purchase</div>
+    </div>
+
+    <div class="review-card">
+      <div class="reviewer-row">
+        <div>
+          <div class="reviewer-name">Sara Khan — Karachi</div>
+          <div class="reviewer-date">April 25, 2026</div>
+        </div>
+        <div class="review-stars-sm">★★★★★</div>
+      </div>
+      <p class="review-text">Pehle darr tha online order karne se but Cash on Delivery option tha toh try kiya. Product bilkul wैसा hi tha jैसा show kiya gaya tha. Battery bhi zabardast hai. Highly recommend!</p>
+      <div class="verified-badge">✅ Verified Purchase</div>
+    </div>
+
+    <div class="review-card">
+      <div class="reviewer-row">
+        <div>
+          <div class="reviewer-name">Usman Ali — Islamabad</div>
+          <div class="reviewer-date">April 20, 2026</div>
+        </div>
+        <div class="review-stars-sm">★★★★☆</div>
+      </div>
+      <p class="review-text">Bohot acha product hai. Birbal AI ne mere budget mein best option suggest kiya — exactly wahi mila jo chahiye tha. Ek star isliye kam k box thora damaged tha lekin product safe tha.</p>
+      <div class="verified-badge">✅ Verified Purchase</div>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED PRODUCTS -->
+<div class="related-section">
+  <div class="section-header">
+    <div>
+      <div class="section-tag">✦ You May Also Like</div>
+      <div class="section-title">Related Products</div>
+    </div>
+    <a href="products.html" class="view-all">View All →</a>
+  </div>
+
+  <div class="related-grid">
+    <div class="related-card">
+      <div class="related-img">📱</div>
+      <div class="related-info">
+        <div class="related-name">Phone Stand Holder Adjustable</div>
+        <div class="related-price">Rs 450</div>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-img">⌚</div>
+      <div class="related-info">
+        <div class="related-name">Smart Watch Series X</div>
+        <div class="related-price">Rs 4,200</div>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-img">🔋</div>
+      <div class="related-info">
+        <div class="related-name">Power Bank 20000mAh Fast</div>
+        <div class="related-price">Rs 1,800</div>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-img">🖥️</div>
+      <div class="related-info">
+        <div class="related-name">USB-C Hub 7-in-1</div>
+        <div class="related-price">Rs 2,100</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="logo" style="text-decoration:none;">
+        <div class="logo-emblem">B</div>
+        <div class="logo-text">
+          <span>Birbal Mart</span>
+          <span>AI Shopping</span>
+        </div>
+      </a>
+      <p class="footer-brand-desc">Inspired by the legendary wisdom of Birbal — we bring intelligent shopping to everyone. Best products, best prices, powered by AI.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Fashion</a></li>
+        <li><a href="#">Home & Living</a></li>
+        <li><a href="#">Sports</a></li>
+        <li><a href="#">All Deals</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">WhatsApp Support</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+        <li><a href="returns.html">Return Policy</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <span>Birbal Mart</span>. All rights reserved.</p>
+    <div class="ntn-badge">🏛️ FBR Registered — NTN Verified ✅</div>
+    <p>Powered by <span>Birbal AI 👑</span></p>
+  </div>
+</footer>
+
+<!-- BIRBAL FLOAT -->
+<div class="birbal-float">
+  <button class="birbal-float-btn">👑</button>
+</div>
+
+<script>
+  let qty = 1;
+
+  function changeQty(n) {
+    qty = Math.max(1, qty + n);
+    document.getElementById('qty').textContent = qty;
+  }
+
+  function setActive(el, group) {
+    document.querySelectorAll('.' + (group === 'color' ? 'color-btn' : 'variant-btn'))
+      .forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  document.querySelectorAll('.thumb').forEach(t => {
+    t.addEventListener('click', function() {
+      document.querySelectorAll('.thumb').forEach(x => x.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
+
+  <!-- WhatsApp Floating Button -->
+  <style>
+    .wa-float{position:fixed;bottom:90px;right:28px;z-index:9998;}
+    .wa-btn{width:56px;height:56px;background:#25D366;border-radius:18px;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,0.4);transition:all 0.3s;animation:waPulse 2s ease-in-out infinite;}
+    .wa-btn:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,0.6);animation:none;}
+    @keyframes waPulse{0%,100%{transform:translateY(0);box-shadow:0 8px 24px rgba(37,211,102,0.4);}50%{transform:translateY(-4px);box-shadow:0 16px 36px rgba(37,211,102,0.6);}}
+    .wa-btn svg{width:28px;height:28px;fill:white;}
+    .wa-tooltip{position:absolute;right:68px;top:50%;transform:translateY(-50%);background:#25D366;color:white;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:700;white-space:nowrap;opacity:0;transition:opacity 0.3s;font-family:"DM Sans",sans-serif;}
+    .wa-float:hover .wa-tooltip{opacity:1;}
+  </style>
+  <div class="wa-float">
+    <div class="wa-tooltip">Chat on WhatsApp 💬</div>
+    <a href="https://wa.me/923059192790?text=Hi%20Birbal%20Mart!%20I%20need%20help%20with%20shopping" target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+</body>
+</html>
