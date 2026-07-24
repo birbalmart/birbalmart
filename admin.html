@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Darbar — Birbal Mart Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F3F5F4;--card:#FFFFFF;--ink:#171A1E;--muted:#8A9099;--line:#EBEEED;--green:#0C6E4E;--green-hi:#12A374;--gold:#C9A227;--gold-hi:#E8C558;--red:#E23B3B;--amber:#F5A524;--tile:#F5F6F4}
+[data-theme="dark"]{--bg:#000;--card:#0C0A06;--ink:#F5EEDA;--muted:#9A8F76;--line:rgba(201,162,39,.24);--green:#1FA877;--green-hi:#2ECC8F;--gold:#D4AF37;--gold-hi:#F5DC8E;--red:#F0564F;--amber:#F5C24A;--tile:#100D07}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Poppins",sans-serif;background:var(--bg);color:var(--ink);padding-bottom:calc(80px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding:0 14px}
+.serif{font-family:"Cinzel",serif}
+
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px;position:sticky;top:0;z-index:50}
+.hbar{max-width:520px;margin:0 auto;display:flex;align-items:center;gap:10px}
+.hbar h1{font-size:1.05rem;font-weight:800;flex:1}
+.hbar h1 small{display:block;font-size:.6rem;font-weight:500;color:var(--muted)}
+.iconbtn{border:none;background:none;font-size:1.15rem;cursor:pointer;color:var(--ink)}
+
+.card{background:var(--card);border-radius:16px;padding:16px;margin-top:14px;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.card h2{font-size:.9rem;font-weight:700;margin-bottom:4px}
+.card p.sub{font-size:.7rem;color:var(--muted);margin-bottom:12px;line-height:1.5}
+
+label{display:block;font-size:.68rem;font-weight:600;color:var(--muted);margin:10px 0 4px}
+input,textarea,select{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;font-family:"Poppins";font-size:.85rem;background:var(--bg);color:var(--ink)}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold)}
+textarea{resize:vertical;min-height:64px}
+.row{display:flex;gap:8px}
+.row>*{flex:1}
+
+.btn{width:100%;border:none;border-radius:12px;padding:13px;font-family:"Poppins";font-size:.85rem;font-weight:700;cursor:pointer;margin-top:12px;background:linear-gradient(100deg,var(--green),var(--green-hi));color:#fff}
+.btn:disabled{opacity:.55}
+.btn.gold{background:linear-gradient(100deg,var(--gold),var(--gold-hi));color:#231B06}
+.btn.ghost{background:none;border:1.5px solid var(--line);color:var(--ink)}
+.btn.sm{width:auto;padding:8px 14px;font-size:.72rem;margin:0}
+
+.msg{border-radius:11px;padding:11px 13px;font-size:.75rem;line-height:1.5;margin-top:12px}
+.msg.ok{background:rgba(18,163,116,.12);color:var(--green-hi)}
+.msg.warn{background:rgba(245,165,36,.14);color:var(--amber)}
+.msg.err{background:rgba(226,59,59,.12);color:var(--red)}
+
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);z-index:60;padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabsin{max-width:520px;margin:0 auto;display:flex}
+.tab{flex:1;border:none;background:none;padding:11px 4px 13px;font-family:"Poppins";font-size:.62rem;font-weight:600;color:var(--muted);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative}
+.tab .ic{font-size:1.1rem}
+.tab.on{color:var(--gold-hi)}
+.tab .badge{position:absolute;top:2px;right:22%;background:var(--red);color:#fff;font-size:.52rem;font-weight:700;padding:1px 5px;border-radius:9px}
+
+.pitem{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}
+.pitem:last-child{border-bottom:none}
+.pitem .thumb{width:48px;height:48px;border-radius:10px;background:var(--tile);flex:none;display:flex;align-items:center;justify-content:center;font-size:1.3rem;overflow:hidden}
+.pitem .thumb img{width:100%;height:100%;object-fit:cover}
+.pitem .info{flex:1;min-width:0}
+.pitem .nm{font-size:.78rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pitem .meta{font-size:.65rem;color:var(--muted);margin-top:2px}
+.chip{display:inline-block;font-size:.55rem;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:5px}
+.chip.live{background:rgba(18,163,116,.15);color:var(--green-hi)}
+.chip.off{background:rgba(226,59,59,.13);color:var(--red)}
+
+.imgpick{display:flex;gap:7px;overflow-x:auto;padding:4px 0 2px}
+.imgpick .opt{width:64px;height:64px;border-radius:10px;overflow:hidden;flex:none;border:2.5px solid transparent;cursor:pointer;background:var(--tile)}
+.imgpick .opt.sel{border-color:var(--gold)}
+.imgpick .opt img{width:100%;height:100%;object-fit:cover}
+
+.alert{border-left:3px solid var(--amber);background:var(--tile);border-radius:10px;padding:11px 12px;margin-bottom:10px}
+.alert.up{border-left-color:var(--red)}
+.alert.down{border-left-color:var(--green-hi)}
+.alert .at{font-size:.72rem;font-weight:700}
+.alert .am{font-size:.68rem;color:var(--muted);margin-top:3px;line-height:1.5}
+.alert .acts{display:flex;gap:7px;margin-top:9px}
+
+.gate{max-width:340px;margin:60px auto;text-align:center}
+.gate .crown{font-size:2.6rem}
+.hide{display:none}
+.spin{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.empty{text-align:center;color:var(--muted);font-size:.75rem;padding:26px 10px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<div id="gate" class="gate wrap">
+  <div class="crown">👑</div>
+  <h1 class="serif" style="font-size:1.3rem;margin:8px 0 4px">Darbar</h1>
+  <p style="font-size:.72rem;color:var(--muted);margin-bottom:18px">Birbal Mart ka control panel</p>
+  <input id="passInput" type="password" placeholder="Passcode" onkeydown="if(event.key==='Enter')unlock()">
+  <button class="btn gold" onclick="unlock()">Darbar mein dakhil hon</button>
+  <div id="gateMsg"></div>
+</div>
+
+<div id="app" class="hide">
+
+<header>
+  <div class="hbar">
+    <span style="font-size:1.3rem">👑</span>
+    <h1>Darbar <small>Wazir hazir hain</small></h1>
+    <button class="iconbtn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section id="viewAdd">
+    <div class="card">
+      <h2>⚡ Quick Add — link se product</h2>
+      <p class="sub">Markaz / AliExpress / Daraz ka link paste karein. Wazir title, qeemat, tasveerein nikalega aur aapki apni categories mein se sahi wali chun lega.</p>
+      <input id="linkInput" type="url" placeholder="https://... product ka link" onkeydown="if(event.key==='Enter')fetchLink()">
+      <button class="btn" id="fetchBtn" onclick="fetchLink()">Link parho</button>
+      <div id="fetchMsg"></div>
+    </div>
+
+    <div class="card hide" id="previewCard">
+      <h2>Tafseel check karein</h2>
+      <p class="sub">Sab kuch badal sakte hain. Save karne se pehle theek kar lein.</p>
+
+      <div id="imgPickWrap" class="hide">
+        <label>Tasveer chunein (pehli wohi hogi jo main dikhegi)</label>
+        <div class="imgpick" id="imgPick"></div>
+      </div>
+
+      <label>Product ka title</label>
+      <input id="pTitle" type="text" placeholder="Product ka naam">
+
+      <label>Category</label>
+      <select id="pCategory" onchange="onCategoryChange()"></select>
+      <div id="newCatWrap" class="hide">
+        <div class="row">
+          <input id="newCatEmoji" type="text" placeholder="emoji (📦)" style="max-width:70px">
+          <input id="newCatName" type="text" placeholder="Nayi category ka naam">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Cost (wahan ki qeemat)</label>
+          <input id="pCost" type="number" step="1" placeholder="0" oninput="recalc()">
+        </div>
+        <div>
+          <label>Munafa %</label>
+          <input id="pMargin" type="number" step="1" value="25" oninput="recalc()">
+        </div>
+      </div>
+
+      <label>Aapki qeemat (customer ko yehi dikhegi)</label>
+      <input id="pPrice" type="number" step="1" placeholder="0" oninput="backcalc()">
+      <div id="profitLine" style="font-size:.68rem;color:var(--muted);margin-top:5px"></div>
+
+      <label>Tafseel</label>
+      <textarea id="pDesc" placeholder="Chhoti si honest tafseel"></textarea>
+
+      <div class="row">
+        <div>
+          <label>Rating (khali chhod sakte hain)</label>
+          <input id="pRating" type="number" step="0.1" min="0" max="5" placeholder="4.5">
+        </div>
+        <div>
+          <label>Stock (kitni pieces)</label>
+          <input id="pStock" type="number" step="1" placeholder="50">
+        </div>
+      </div>
+
+      <label>Delivery type</label>
+      <input id="pDelivery" type="text" placeholder="3-5 din / local / imported">
+
+      <label>Asli link (Watcher isi pe nazar rakhega)</label>
+      <input id="pSource" type="url" placeholder="https://...">
+
+      <button class="btn gold" id="saveBtn" onclick="saveProduct()">Store pe live karein</button>
+      <button class="btn ghost" onclick="resetForm()">Cancel</button>
+      <div id="saveMsg"></div>
+    </div>
+
+    <div class="card">
+      <h2>✍️ Khali form</h2>
+      <p class="sub">Apni cheez (jaise ghar ka desi ghee) bina link ke add karni ho to.</p>
+      <button class="btn ghost" onclick="blankForm()">Khali form kholein</button>
+    </div>
+  </section>
+
+  <section id="viewProducts" class="hide">
+    <div class="card">
+      <h2>📦 Saare products</h2>
+      <p class="sub">Naam theek karna, qeemat badalna, ya hatana — sab yahan se.</p>
+      <div id="prodList"><div class="empty">Load ho raha hai…</div></div>
+      <button class="btn ghost" onclick="loadProducts()">Refresh</button>
+    </div>
+  </section>
+
+  <section id="viewAlerts" class="hide">
+    <div class="card">
+      <h2>🔔 Watcher ki khabrein</h2>
+      <p class="sub">Har 2 ghante Wazir aapke products ke asli link check karta hai. Qeemat ya stock badle to yahan khabar chhodta hai.</p>
+      <div id="alertList"><div class="empty">Load ho raha hai…</div></div>
+      <button class="btn ghost" onclick="loadAlerts()">Refresh</button>
+    </div>
+    <div class="card">
+      <h2>⏱️ Abhi check karwayein</h2>
+      <p class="sub">Intezar na karna ho to Wazir ko abhi bhej dein.</p>
+      <button class="btn" id="runBtn" onclick="runWatcher()">Wazir ko abhi bhejein</button>
+      <div id="watchMsg"></div>
+    </div>
+  </section>
+
+</div>
+
+<nav class="tabs"><div class="tabsin">
+  <button class="tab on" id="tabAdd" onclick="showTab('Add')"><span class="ic">⚡</span>Quick Add</button>
+  <button class="tab" id="tabProducts" onclick="showTab('Products')"><span class="ic">📦</span>Products</button>
+  <button class="tab" id="tabAlerts" onclick="showTab('Alerts')"><span class="ic">🔔</span>Khabrein<span id="alertBadge" class="badge hide">0</span></button>
+</div></nav>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL = "https://szikthydpanliybbpehx.supabase.co";
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN6aWt0aHlkcGFubGl5YmJwZWh4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwOTc3NjMsImV4cCI6MjA5ODY3Mzc2M30.g8smfp8XJxdXWzE7On6dAJdyiPzR-S_xcYN2m557cCI";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+let PASSCODE = '';
+let pickedImages = [];
+let CATEGORIES = [];
+
+function toggleTheme(){
+  const h=document.documentElement, dark=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme', dark?'':'dark');
+  document.getElementById('themeBtn').textContent = dark?'🌙':'☀️';
+  localStorage.setItem('birbal-theme', dark?'light':'dark');
+}
+if(localStorage.getItem('birbal-theme')==='dark') document.documentElement.setAttribute('data-theme','dark');
+
+function unlock(){
+  const v = document.getElementById('passInput').value.trim();
+  if(!v){ show('gateMsg','err','Passcode likhein.'); return; }
+  PASSCODE = v;
+  sessionStorage.setItem('birbal-pass', v);
+  enterApp();
+}
+if(sessionStorage.getItem('birbal-pass')){ PASSCODE = sessionStorage.getItem('birbal-pass'); enterApp(); }
+
+function enterApp(){
+  document.getElementById('gate').classList.add('hide');
+  document.getElementById('app').classList.remove('hide');
+  loadCategories(); loadProducts(); loadAlerts();
+}
+
+function showTab(name){
+  ['Add','Products','Alerts'].forEach(t=>{
+    document.getElementById('view'+t).classList.toggle('hide', t!==name);
+    document.getElementById('tab'+t).classList.toggle('on', t===name);
+  });
+  if(name==='Products') loadProducts();
+  if(name==='Alerts') loadAlerts();
+}
+
+function show(id, kind, text){ document.getElementById(id).innerHTML = `<div class="msg ${kind}">${text}</div>`; }
+function clearMsg(id){ document.getElementById(id).innerHTML=''; }
+
+/* ============ CATEGORIES ============ */
+async function loadCategories(){
+  const { data, error } = await sb.from('categories').select('id,name,emoji').eq('is_active',true).order('name');
+  if(!error) CATEGORIES = data || [];
+  const sel = document.getElementById('pCategory');
+  sel.innerHTML = CATEGORIES.map(c=>`<option value="${c.id}">${c.emoji||'📦'} ${c.name}</option>`).join('')
+    + `<option value="__new__">➕ Nayi category banayein</option>`;
+}
+function onCategoryChange(){
+  const isNew = document.getElementById('pCategory').value === '__new__';
+  document.getElementById('newCatWrap').classList.toggle('hide', !isNew);
+}
+async function resolveCategoryId(){
+  const sel = document.getElementById('pCategory').value;
+  if(sel !== '__new__') return sel || null;
+  const name = document.getElementById('newCatName').value.trim();
+  const emoji = document.getElementById('newCatEmoji').value.trim() || '📦';
+  if(!name) return null;
+  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+  const { data, error } = await sb.from('categories').insert([{ name, emoji, slug, is_active:true }]).select('id').single();
+  if(error){ alert('Nayi category nahi ban saki: '+error.message); return null; }
+  await loadCategories();
+  document.getElementById('pCategory').value = data.id;
+  return data.id;
+}
+
+/* ============ QUICK ADD ============ */
+async function fetchLink(){
+  const url = document.getElementById('linkInput').value.trim();
+  if(!/^https?:\/\//i.test(url)){ show('fetchMsg','err','Poora link daalein (https:// se shuru).'); return; }
+  const btn = document.getElementById('fetchBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spin"></span>Wazir parh raha hai…';
+  clearMsg('fetchMsg');
+  try{
+    const r = await fetch('/api/product-import', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-admin-passcode':PASSCODE},
+      body: JSON.stringify({ url })
+    });
+    const d = await r.json();
+    if(r.status === 401){ show('fetchMsg','err','Passcode ghalat hai. Dobara login karein.'); return; }
+    if(d.categories?.length) CATEGORIES = d.categories;
+
+    if(d.ok){
+      fillForm(d);
+      show('fetchMsg','ok', d.note || 'Mil gaya! Neeche check kar ke save karein.');
+    }else{
+      blankForm();
+      document.getElementById('pSource').value = d.source_url || url;
+      show('fetchMsg','warn', d.reason || 'Page se kuch nahi mila — khud bhar dein.');
+    }
+  }catch(e){
+    show('fetchMsg','err','Rabta nahi ho saka. Internet check karein.');
+  }finally{
+    btn.disabled=false; btn.textContent='Link parho';
+  }
+}
+
+async function fillForm(d){
+  const s = d.suggested || {};
+  pickedImages = s.images || [];
+  document.getElementById('previewCard').classList.remove('hide');
+  await loadCategoriesInto(d.categories);
+  document.getElementById('pTitle').value = s.title || '';
+  document.getElementById('pCategory').value = s.category_id || '';
+  onCategoryChange();
+  document.getElementById('pDesc').value = s.description || '';
+  document.getElementById('pRating').value = s.rating || '';
+  document.getElementById('pStock').value = '';
+  document.getElementById('pCost').value = d.source_price ?? '';
+  document.getElementById('pSource').value = d.source_url || '';
+  document.getElementById('pDelivery').value = d.source === 'aliexpress' ? '15-25 din' : '3-5 din';
+  renderImages();
+  recalc();
+  document.getElementById('previewCard').scrollIntoView({behavior:'smooth'});
+}
+async function loadCategoriesInto(list){
+  if(list?.length) CATEGORIES = list;
+  const sel = document.getElementById('pCategory');
+  sel.innerHTML = CATEGORIES.map(c=>`<option value="${c.id}">${c.emoji||'📦'} ${c.name}</option>`).join('')
+    + `<option value="__new__">➕ Nayi category banayein</option>`;
+}
+
+function blankForm(){
+  pickedImages = [];
+  document.getElementById('previewCard').classList.remove('hide');
+  ['pTitle','pDesc','pRating','pStock','pCost','pPrice','pSource'].forEach(i=>document.getElementById(i).value='');
+  document.getElementById('pMargin').value=25;
+  document.getElementById('pDelivery').value='3-5 din';
+  renderImages();
+  document.getElementById('profitLine').textContent='';
+  document.getElementById('previewCard').scrollIntoView({behavior:'smooth'});
+}
+
+function resetForm(){
+  document.getElementById('previewCard').classList.add('hide');
+  clearMsg('saveMsg'); clearMsg('fetchMsg');
+  document.getElementById('linkInput').value='';
+}
+
+function renderImages(){
+  const wrap = document.getElementById('imgPickWrap');
+  const box = document.getElementById('imgPick');
+  if(!pickedImages.length){ wrap.classList.add('hide'); return; }
+  wrap.classList.remove('hide');
+  box.innerHTML = pickedImages.map((src,i)=>
+    `<div class="opt ${i===0?'sel':''}" onclick="makeMain(${i})"><img src="${src}" onerror="this.parentNode.remove()"></div>`
+  ).join('');
+}
+function makeMain(i){ const [img] = pickedImages.splice(i,1); pickedImages.unshift(img); renderImages(); }
+
+function recalc(){
+  const cost = parseFloat(document.getElementById('pCost').value);
+  const margin = parseFloat(document.getElementById('pMargin').value);
+  if(!isNaN(cost) && !isNaN(margin)){
+    const price = Math.round(cost * (1 + margin/100));
+    document.getElementById('pPrice').value = price;
+    profitLine(cost, price);
+  }
+}
+function backcalc(){
+  const cost = parseFloat(document.getElementById('pCost').value);
+  const price = parseFloat(document.getElementById('pPrice').value);
+  if(!isNaN(cost) && cost>0 && !isNaN(price)){
+    document.getElementById('pMargin').value = Math.round(((price-cost)/cost)*100);
+    profitLine(cost, price);
+  }
+}
+function profitLine(cost, price){
+  const p = price - cost;
+  document.getElementById('profitLine').textContent =
+    `Har item pe munafa: Rs ${p.toLocaleString()}${p<=0?' ⚠️ nuqsan ho raha hai':''}`;
+}
+
+async function saveProduct(){
+  const title = document.getElementById('pTitle').value.trim();
+  const price = parseFloat(document.getElementById('pPrice').value);
+  if(!title){ show('saveMsg','err','Title zaroori hai.'); return; }
+  if(isNaN(price) || price<=0){ show('saveMsg','err','Sahi qeemat daalein.'); return; }
+
+  const category_id = await resolveCategoryId();
+  const cost = parseFloat(document.getElementById('pCost').value);
+  if(!isNaN(cost) && cost>0 && price<=cost){
+    if(!confirm('Ye qeemat cost se kam ya barabar hai — nuqsan hoga. Phir bhi save karun?')) return;
+  }
+
+  const row = {
+    title,
+    price,
+    category_id: category_id || null,
+    description: document.getElementById('pDesc').value.trim() || null,
+    images: pickedImages.length ? pickedImages : [],
+    rating: parseFloat(document.getElementById('pRating').value) || null,
+    stock: parseInt(document.getElementById('pStock').value) || null,
+    delivery_type: document.getElementById('pDelivery').value.trim() || null,
+    source_url: document.getElementById('pSource').value.trim() || null,
+    source_price: isNaN(cost) ? null : cost,
+    margin_pct: parseFloat(document.getElementById('pMargin').value) || null,
+    status: 'active'
+  };
+
+  const btn = document.getElementById('saveBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span>Save ho raha hai…';
+  try{
+    const { error } = await sb.from('products').insert([row]);
+    if(error) throw error;
+    show('saveMsg','ok','✅ Live ho gaya! Store pe dikhna shuru ho jayega.');
+    setTimeout(()=>{ resetForm(); loadProducts(); }, 1200);
+  }catch(e){
+    show('saveMsg','err','Save nahi hua: '+(e.message||e));
+  }finally{
+    btn.disabled=false; btn.textContent='Store pe live karein';
+  }
+}
+
+/* ============ PRODUCTS ============ */
+async function loadProducts(){
+  const box = document.getElementById('prodList');
+  try{
+    const { data, error } = await sb.from('products').select('*, categories(name,emoji)').order('created_at',{ascending:false});
+    if(error) throw error;
+    if(!data.length){ box.innerHTML='<div class="empty">Abhi koi product nahi. Quick Add se shuru karein.</div>'; return; }
+
+    box.innerHTML = data.map(p=>{
+      const missing = !p.title || !String(p.title).trim();
+      const img = (p.images && p.images.length)
+        ? `<img src="${p.images[0]}" onerror="this.style.display='none'">`
+        : (p.categories?.emoji || '📦');
+      const off = p.status && p.status !== 'active';
+      return `<div class="pitem">
+        <div class="thumb">${img}</div>
+        <div class="info">
+          <div class="nm" style="${missing?'color:var(--red)':''}">${missing?'⚠️ (title khali)':p.title}</div>
+          <div class="meta">Rs ${Number(p.price||0).toLocaleString()} · ${p.categories?.name||'—'}
+            <span class="chip ${off?'off':'live'}">${off?(p.status||'chhupa'):'live'}</span>
+          </div>
+        </div>
+        <button class="btn sm ghost" onclick="editProduct('${p.id}')">Edit</button>
+      </div>`;
+    }).join('');
+  }catch(e){
+    box.innerHTML = `<div class="msg err">Load nahi hua: ${e.message||e}</div>`;
+  }
+}
+
+async function editProduct(id){
+  const { data, error } = await sb.from('products').select('*').eq('id',id).single();
+  if(error){ alert('Product nahi mila'); return; }
+
+  const newTitle = prompt('Title:', data.title || '');
+  if(newTitle === null){
+    if(confirm('Is product ko hamesha ke liye hata dein?')){
+      const { error: delErr } = await sb.from('products').delete().eq('id', id);
+      if(delErr) alert('Delete nahi hua: '+delErr.message); else loadProducts();
+    }
+    return;
+  }
+  const newPrice = prompt('Qeemat (Rs):', data.price || '');
+  if(newPrice === null) return;
+
+  const patch = { title: newTitle.trim(), price: parseFloat(newPrice) || data.price };
+  const { error: upErr } = await sb.from('products').update(patch).eq('id', id);
+  if(upErr) alert('Update nahi hua: '+upErr.message); else loadProducts();
+}
+
+/* ============ ALERTS ============ */
+async function loadAlerts(){
+  const box = document.getElementById('alertList');
+  try{
+    const { data, error } = await sb.from('product_alerts').select('*').eq('status','pending').order('created_at',{ascending:false}).limit(40);
+    if(error) throw error;
+
+    const badge = document.getElementById('alertBadge');
+    if(data.length){ badge.textContent=data.length; badge.classList.remove('hide'); }
+    else badge.classList.add('hide');
+
+    if(!data.length){ box.innerHTML='<div class="empty">Sab theek hai 👑<br>Koi nayi khabar nahi.</div>'; return; }
+
+    box.innerHTML = data.map(a=>{
+      const cls = a.alert_type==='price_up' ? 'up' : (a.alert_type==='price_down' ? 'down' : '');
+      const icon = {price_up:'📈',price_down:'📉',out_of_stock:'🚫',back_in_stock:'✅',parse_failed:'⚠️'}[a.alert_type]||'🔔';
+      return `<div class="alert ${cls}">
+        <div class="at">${icon} ${a.product_name||'(product)'}</div>
+        <div class="am">${a.message||''}${a.old_value?`<br><span style="opacity:.75">${a.old_value} → ${a.new_value}</span>`:''}</div>
+        <div class="acts">
+          <button class="btn sm ghost" onclick="dismissAlert(${a.id})">Samajh gaya</button>
+          ${a.product_id?`<button class="btn sm ghost" onclick="editProduct('${a.product_id}')">Product kholo</button>`:''}
+        </div>
+      </div>`;
+    }).join('');
+  }catch(e){
+    box.innerHTML = `<div class="msg err">Khabrein load nahi huin: ${e.message||e}<br><small>Shayad product_alerts table abhi bana nahi — SQL chala lein.</small></div>`;
+  }
+}
+
+async function dismissAlert(id){
+  await sb.from('product_alerts').update({status:'ignored'}).eq('id',id);
+  loadAlerts();
+}
+
+async function runWatcher(){
+  const btn = document.getElementById('runBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spin"></span>Wazir gaya hai…';
+  clearMsg('watchMsg');
+  try{
+    const r = await fetch('/api/price-watch?secret='+encodeURIComponent(PASSCODE));
+    const d = await r.json();
+    if(r.status===401){ show('watchMsg','err','Watcher ka secret alag hai. Vercel mein CRON_SECRET aur ye passcode ek jaisa rakhein.'); return; }
+    if(d.ok){
+      show('watchMsg','ok', `Check mukammal: ${d.checked} products dekhe · ${d.price_changed} qeemat badli · ${d.went_out_of_stock} stock khatam · ${d.parse_failed} parh nahi saka.`);
+      loadAlerts(); loadProducts();
+    }else{
+      show('watchMsg','err','Masla: '+(d.error||'pata nahi'));
+    }
+  }catch(e){
+    show('watchMsg','err','Watcher chal nahi saka: '+e.message);
+  }finally{
+    btn.disabled=false; btn.textContent='Wazir ko abhi bhejein';
+  }
+}
+</script>
+</body>
+</html>
