@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/price-watch",
+      "schedule": "0 */2 * * *"
+    }
+  ]
+}
