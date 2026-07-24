@@ -144,8 +144,8 @@ async function searchProducts(lastUserMessage) {
   const keywords = extractKeywords(lastUserMessage);
   if (!keywords.length) return [];
   try {
-    const orFilter = keywords.map(k => `name.ilike.*${k}*,category.ilike.*${k}*`).join(',');
-    const url = `${SUPABASE_URL}/rest/v1/products?select=id,name,price,images,category,rating&or=(${orFilter})&limit=4`;
+    const orFilter = keywords.map(k => `title.ilike.*${k}*`).join(',');
+    const url = `${SUPABASE_URL}/rest/v1/products?select=id,title,price,images,rating,status,categories(name,emoji)&status=eq.active&or=(${orFilter})&limit=4`;
     const res = await fetch(url, {
       headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` }
     });
